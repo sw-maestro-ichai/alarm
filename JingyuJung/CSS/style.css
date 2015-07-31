@@ -1,0 +1,51 @@
+
+.ui-controlgroup-horizontal .NoneBtn {
+	color: black;
+	
+}
+
+.ui-controlgroup-horizontal .RedBtn {
+	color: crimson;
+}
+
+.ui-controlgroup-horizontal .BlueBtn {
+	color: dodgerblue;
+}
+
+.ui-controlgroup-horizontal .GreenBtn {
+	color: forestgreen;
+}
+
+.ui-controlgroup-horizontal .WhiteBtn {
+	color:darkgrey;
+}
+
+.colorBtnGroup{
+	text-align: center;
+}
+
+.selectedBtn {
+    color:aqua;	
+}
+
+.NoneBtn.ui-btn.ui-corner-all.ui-btn-inherit.ui-btn-active.ui-radio-on{
+	color: white;
+	background-color: black;
+}
+.RedBtn.ui-btn.ui-corner-all.ui-btn-inherit.ui-btn-active.ui-radio-on{
+	color: white;
+	background-color: crimson;
+}
+.BlueBtn.ui-btn.ui-corner-all.ui-btn-inherit.ui-btn-active.ui-radio-on{
+	color: white;
+	background-color: dodgerblue;
+}
+.GreenBtn.ui-btn.ui-corner-all.ui-btn-inherit.ui-btn-active.ui-radio-on{
+	color: white;
+	background-color: forestgreen;
+}
+.WhiteBtn.ui-btn.ui-corner-all.ui-btn-inherit.ui-btn-active.ui-radio-on{
+	color: black;
+	background-color: whitesmoke;
+}
+
