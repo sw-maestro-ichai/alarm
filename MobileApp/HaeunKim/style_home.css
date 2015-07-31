@@ -1,0 +1,60 @@
+#splash {
+    background-color: black;
+}
+#cloud {
+    width: 350px;
+    height: auto;
+}
+#cloud-wrapper {
+    margin: 10px auto;
+    width: 350px;
+}
+#usr {
+    width: 100px;
+    height: 100px;
+}
+#usr-wrapper {
+    margin: 20px auto;
+    width: 100px;
+}
+.login {
+    width: 500px;
+    margin: 0 auto;
+}
+#connect {
+    width: 110px;
+}
+#exit {
+    width: 110px;
+}
+#button-wrapper {
+    text-align: center;
+    margin: 20px auto;
+}
+#header {
+    text-align: center;
+    font-size: 30px;
+    margin: 10px auto;
+}
+#image {
+    width: 140px;
+    height: 140px;
+}
+#image-wrapper {
+    margin: 20px auto;
+    width: 140px;
+}
+#button-group {
+    width: 250px;
+    margin: 0 auto;
+}
+#monitor {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+#gear {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px; 
+}

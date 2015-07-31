@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Login</title>
+<link rel="stylesheet" href="lib/jquery.mobile.min.css" />
+<link rel="stylesheet" href="style_home.css" />
+<script src="lib/jquery.min.js" type="text/javascript"></script>
+<script src="lib/jquery.mobile.min.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+   <section data-role="page" id="splash">
+        <div class="splash">
+           <div data-role="controlgroup" data-type="vertical" id="cloud-wrapper">
+               <img src="http://rain43.com/wp-content/themes/june19-rain43/images/cloud-normal2.png" alt="splash image" id="cloud"/>
+               <p id="title" style="text-align:center">Splash</p>
+           </div>
+        </div>
+    </section>
+    
+    <section data-role="page" id="login">
+       <div data-role="content">
+            <div data-role="image" id="usr-wrapper">
+                <img src="user.png" alt="user image" id="usr"/>
+            </div>
+            <div data-role="fieldcontain" class="login">
+               <label for="ip_address">IP Address:</label>
+               <input type="text" name="ip_address" id="ip_address" value="" placeholder="IP Address" />
+            </div>
+            <div id="button-wrapper">
+                 <a href="#" data-role="button" data-inline="true" id="connect" data-theme="e">Connect</a>
+                 <a href="#" data-role="button" data-inline="true" id="exit">Exit</a>
+            </div>
+       </div>
+    </section>
+    
+    <script>
+        $(document).on('pageinit', '#splash', function(){
+            setTimeout(function(){
+                $.mobile.changePage("#login", {transition: "fade"});
+            }, 2000)
+        });
+        
+        $('a#connect').click(function() {
+            if(document.getElementById('ip_address').value == "1234") {
+                $.mobile.changePage("Home.html#home", {transition: "slide"} );
+            }
+            else {
+                confirm('연결에 실패했습니다.');
+            }
+        });
+    </script>
+</body>
+</html>
