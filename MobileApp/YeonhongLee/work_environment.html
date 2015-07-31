@@ -1,0 +1,66 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>근무 환경</title> 
+
+	<meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8"> 
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+	<script>
+	jQuery(document).ready(function($) {
+	  $.ajax({
+	  	// 결과를 한글로 받을 수 있다.
+	  url : "http://api.wunderground.com/api/b39018f807993dcb/geolookup/conditions/lang:KR/q/Korea/Seoul.json",
+	  dataType : "jsonp",
+	  success : function(parsed_json) {
+	  	 var observ = parsed_json.current_observation;
+         // 날씨 관측 시간 
+		 var weather_time = observ.observation_time;
+		 $("#observ_time").append(weather_time);
+         // 현재 날씨 아이콘
+         var weather_state = "<img src='"+observ.icon_url+"'/>";
+         $("#observ_state").append(weather_state);
+         // 현재 온도 (섭씨) 
+         var weather_temper = observ.temp_c+"°C";
+         $("#observ_temper").append(weather_temper);    
+         // 현재 습도
+         var weather_humi = observ.relative_humidity;
+         $("#observ_humi").append(weather_humi);
+      }
+	  });
+	});
+	</script>
+</head> 
+<body> 
+
+
+<section id="firstpage" data-role="page">
+
+	<div data-role="header">
+		<h1>근무 환경</h1>
+        <a href="#" data-icon="back">취소</a>
+	</div>
+
+	<div data-role="content">
+			<h2>서울 지역</h2>
+            <ul data-role="listview" data-inset="true" data-type="horizontal">
+                <li><div id="observ_time" align="right" class="ui-li-count"></div></li>
+                <li>날씨<div id="observ_state" data-icon="true" align="right"></div></li>
+                <li>온도<div id="observ_temper" class="ui-li-aside" style="font-size: 12px"></div></li>
+                <li>습도<div id="observ_humi" class="ui-li-aside" style="font-size: 12px"></div></li>
+            </ul>
+        
+            <h2>사무실</h2>
+            <ul data-role="listview" data-inset="true" data-type="horizontal">
+                <li>온도<p class="ui-li-aside"><strong>25°C</strong></p></li>
+                <li>습도<p class="ui-li-aside"><strong>50%</strong></p></li>
+        </ul>
+		
+            
+	</div><!-- /content -->
+
+    </section>
+
+</body>
+</html>
