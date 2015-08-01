@@ -1,7 +1,6 @@
-$(document).delegate('#Environment', 'pageinit', function() {
-    $(document).ready(function($) {
-	  $.ajax({
-	  	// 결과를 한글로 받을 수 있다.
+$(document).on('pageinit', '#Environment', function() {
+    $.ajax({
+      // 결과를 한글로 받을 수 있다.
 	  url : "http://api.wunderground.com/api/b39018f807993dcb/geolookup/conditions/lang:KR/q/Korea/Seoul.json",
 	  dataType : "jsonp",
 	  success : function(parsed_json) {
@@ -19,6 +18,5 @@ $(document).delegate('#Environment', 'pageinit', function() {
          var weather_humi = observ.relative_humidity;
          $("#observ_humi").append(weather_humi);
       }
-	  });
 	});
 });

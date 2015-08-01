@@ -5,9 +5,13 @@
 <title>Login</title>
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
 <link rel="stylesheet" href="CSS/style_home.css">
+<link rel="stylesheet" href="CSS/style.css">
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-
+<script src="/js/login.js"></script>
+<script src="/js/weather.js"></script>
+<script src="/js/settings.js"></script>
+    
 </head>
 
 <body>
@@ -23,34 +27,17 @@
     <section data-role="page" id="login">
        <div data-role="content">
             <div data-role="image" id="usr-wrapper">
-                <img src="user.png" alt="user image" id="usr"/>
+                <img src="/res/user.png" alt="user image" id="usr"/>
             </div>
             <div data-role="fieldcontain" class="login">
-               <label for="ip_address">IP Address:</label>
-               <input type="text" name="ip_address" id="ip_address" value="" placeholder="IP Address" />
+                <label for="ip_address"><strong>IP Address :<strong></label>
+                <input type="text" name="ip_address" id="ip_address" value="" placeholder="IP Address" />
             </div>
-            <div id="button-wrapper">
-                 <a href="#" data-role="button" data-inline="true" id="connect" data-theme="e">Connect</a>
+            <div id="button-wrapper" align="center">
+                 <a href="Home.html" data-role="button" data-inline="true" id="connect" data-theme="e">Connect</a>
                  <a href="#" data-role="button" data-inline="true" id="exit">Exit</a>
             </div>
        </div>
     </section>
-    
-    <script>
-        $(document).on('pageinit', '#splash', function(){
-            setTimeout(function(){
-                $.mobile.changePage("#login", {transition: "fade"});
-            }, 2000)
-        });
-        
-        $('a#connect').click(function() {
-            if(document.getElementById('ip_address').value == "1234") {
-                $.mobile.changePage("Home.html#home", {transition: "slide"} );
-            }
-            else {
-                confirm('연결에 실패했습니다.');
-            }
-        });
-    </script>
 </body>
 </html>
