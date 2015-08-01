@@ -4,6 +4,7 @@
 #cloud {
     width: 350px;
     height: auto;
+    text-align: center;
 }
 #cloud-wrapper {
     margin: 10px auto;

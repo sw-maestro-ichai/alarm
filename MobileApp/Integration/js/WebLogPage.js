@@ -1,5 +1,4 @@
-$(document).on('pageinit', '#webLog', function() {
-    $(function(){
+$(function(){
         var d= new Date();
         /* 가상 데이터 */
         var DataList=[[d, 20.13],[d-3*60000, 19.17],[d-6*60000, 19.27],[d-9*60000, 19.10],[d-12*60000, 20.17],[d-15*60000, 21.17],[d-18*60000, 30.17],[d-21*60000, 40.17],[d-24*60000, 19.20],[d-27*60000, 18.17],[d-30*60000, 20.17]];
@@ -52,5 +51,4 @@ $(document).on('pageinit', '#webLog', function() {
             }
         });
         $( "#log-list" ).listview( "refresh" );
-    });
 });

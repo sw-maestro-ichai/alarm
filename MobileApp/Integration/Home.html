@@ -8,9 +8,9 @@
 <link rel="stylesheet" href="CSS/style.css">
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-<script src="/js/weather.js"></script>
-<script src="/js/settings.js"></script>
-<script src="/js/WebLogPage.js"></script>
+<script src="js/weather.js"></script>
+<script src="js/settings.js"></script>
+<script src="js/WebLogPage.js"></script>
 </head>
     
 <body>
@@ -20,11 +20,11 @@
                <p id="header">Current State</p>
             </div>
             <div data-role="image" id="image-wrapper" >
-                <a href="WebLogPage.html" data-transition="pop"><img src="/res/cloud-storm.png" alt="current state image" id="image"/></a>
+                <a onClick="location.href='WebLogPage.html'" data-transition="pop"><img src="/res/cloud-storm.png" alt="current state image" id="image"/></a>
             </div>
             <div data-role="controlgroup" data-type="vertical" id="button-group" align="center">
                 <a href="Environment.html" onClick="javascript.function(); return false;" data-role="button" data-icon="arrow-r" data-iconpos="right" data-transition="slide"><img src="/res/monitor.png" id="monitor"/>근무환경</a>
-                <a href="settings.html" data-role="button" data-icon="arrow-r" data-iconpos="right" data-transition="slide"><img src="/res/gear.png" id="gear"/>환경설정</a>
+                <a onClick="location.href='settings.html'" data-role="button" data-icon="arrow-r" data-iconpos="right" data-transition="slide"><img src="/res/gear.png" id="gear"/>환경설정</a>
             </div>
         </div>
     </section>
