@@ -1,3 +1,4 @@
+$(function(){
 $(document).ready(function(){
 		$('#OK').click(function(){
 			
@@ -6,7 +7,6 @@ $(document).ready(function(){
 				alert("평상시, 경고 LED의 색은 달라야합니다.");
 			}else{
 				alert("설정 완료");
-                 .mobile.changePage("Home.html#Home", {transition: "slide"} );
 			}
 			
 		});
@@ -48,3 +48,5 @@ function ChkDuplicateLedColor(dataList){
 		return true;
 	}
 }
+    
+});
