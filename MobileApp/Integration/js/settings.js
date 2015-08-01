@@ -1,4 +1,42 @@
 $(function(){
+    
+    $("input:radio[name='cloud']").on("change",function(){
+       if($("input:radio[id='cloudOn']").is(':checked')){
+              $(".second-List").show();
+       
+       
+       }
+        if($("input:radio[id='cloudOff']").is(':checked')){
+             $(".second-List").hide();
+       
+       } 
+        
+    });
+        
+$("input:radio[name='alertLed']").on("change",function(){
+   
+  if( $("input:radio[name='basicLed']:checked").val()==
+     $("input:radio[name='alertLed']:checked").val()){
+       $("input:radio[name='alertLed']:checked").attr("checked",false);
+      alert("같은 색상으로 변경할 수 없습니다.");
+//      $(this).attr("checked",true);
+      $("input:radio[id='none']").attr("checked",'checked');
+  }
+});
+            
+$("input:radio[name='basicLed']").on("change",function(){
+     if( $("input:radio[name='basicLed']:checked").val()==
+     $("input:radio[name='alertLed']:checked").val()){
+             $("input:radio[name='basicLed']:checked").attr("checked",false);
+   
+      alert("같은 색상으로 변경할 수 없습니다.");
+//      $(this).attr("checked",true);
+//      $("input:radio[id='Bnone']").attr("checked",'checked');
+//    
+     }
+});
+    
+
 $(document).ready(function(){
 		$('#OK').click(function(){
 			
@@ -38,6 +76,7 @@ function SettingData(dataList){
 
 function SendDataToServer(){
 }
+
 
 
 

@@ -10,7 +10,7 @@ $(function(){
             $.mobile.changePage("Home.html#Home", {transition: "slide"} );
         }
         else {
-            confirm('연결에 실패했습니다.');
+            alert('ip가 정확하지 않습니다.');
         }
     });
 
