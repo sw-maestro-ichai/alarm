@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>W3C Geolocation Demo with Google Maps</title>
+	<meta charset="utf-8">
+	
+	<!-- Google Maps API. URL 참조  http://code.google.com/intl/ko-KR/apis/maps/documentation/javascript/tutorial.html -->
+	<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+	
+	<script> 
+		if (navigator.geolocation){	//  geolocation  지원하는 브라우저 인가?
+			
+			// Geolocation 정보를 구한다.
+			navigator.geolocation.getCurrentPosition(displayPosition, errorFunction);
+		}
+		else{
+			alert('It seems like Geolocation, which is required for this page, is not enabled in your browser. Please use a browser which supports it.');
+		}
+
+		var mylat, mylong;
+		 
+		//success callback function
+		function displayPosition(pos){
+			// 위도정보
+			mylat = pos.coords.latitude;
+			// 경도정보
+			mylong = pos.coords.longitude;
+			
+			// 정보를 표시한 위치
+			var thediv = document.getElementById("locationinfo");
+			thediv.innerHTML = "<p>Your longitude is :"+mylong+" and your latitude is "+mylat+"</p>";
+			
+			// Google  지도 생성
+			var latlng = new google.maps.LatLng(mylat, mylong);
+			// Google  지도 옵션
+			var myOptions = {
+			  zoom: 15,				//  Default  Zoom값 
+			  center: latlng,	// 중심 포인드
+			  mapTypeId: google.maps.MapTypeId.ROADMAP	// 지도  Type
+			  
+			  /**  지도 Type
+			  MapTypeId.ROADMAP   - 기본 뷰를 표시합니다.
+			  MapTypeId.SATELLITE - Google 어스 위성 이미지를 표시합니다.
+			  MapTypeId.HYBRID    - 일반 뷰와 위성 뷰를 혼합하여 표시합니다.
+			  MapTypeId.TERRAIN   - 지형 정보를 바탕으로 실제 지도를 표시합니다.
+			  */
+		};
+		
+		//  map_canvas  위치에 지도를 그린다
+		var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+		 
+		// 중심점에  Marker 표시
+		var marker = new google.maps.Marker({
+			     position: latlng, 
+			     map: map, 
+			     title:"You are here"
+			 });    
+		 }
+		 
+		//  GPS  정보를 구하지 못한 경우 실행
+		function errorFunction(pos){
+			alert('Error!');
+		}
+	 
+	</script>
+	<style type="text/css">
+	html,body {
+		width: 500px;
+		height: 360px;
+	}
+	
+	#map_canvas {
+		height: 85%;
+		width: 100%;
+	}
+	</style>
+</head>
+<body>
+	<div id="map_canvas"></div>
+	<div id="locationinfo"></div>
+</body>
+</html>

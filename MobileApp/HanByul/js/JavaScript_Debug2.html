@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="css/main.css">
+
+<title>storage</title>
+<script>
+//localStorage 값을 필드에 넣는다
+function getFormState() {
+    var fields = document.getElementsByTagName('form')[0].elements;
+    
+    for (var i = 1; i <= fields.length-1; i++) {
+	    	var name = fields[i].getAttribute('name');
+	      fields[i].value = localStorage[name];
+    }
+}
+
+var a=0;
+
+// 필드 값을 LocalStorage 에 넣고, 시간을 표시 한다
+function saveFormState() {
+    var fields = document.getElementsByTagName('form')[0].elements;
+    
+    var populated = false;
+    for (var i = 1; i <= fields.length-1; i++) {
+        var name = fields[i].getAttribute('name');
+        localStorage[name] = fields[i].value;
+        a = a + 1;
+        // a 값의 변화를 관찰한다..!!! 
+        populated = true;
+    }
+    
+    
+    //  아래 if 문이 실행 되는지 안되는지 확인한다
+    if( a == 5 ) {
+      alert( a );
+    }
+    
+    // 시간을 표시 한다
+    if (populated) {
+        var date = new Date();
+        var hours = date.getHours();
+        var mins = date.getMinutes();
+        var secs = date.getSeconds();
+        hours = (hours < 10) ? '0' + hours : hours;
+        mins = (mins < 10) ? '0' + mins : mins;
+        secs = (secs < 10) ? '0' + secs : secs;
+        var msg = '[Form data was saved at ' + hours + ':' + mins + ':' + secs + ']';
+        var timecont = document.getElementById('time_container');
+        if (timecont !== null) {
+            timecont.innerHTML = msg;
+        }
+        else {
+            timecont = document.createElement('span');
+            timecont.setAttribute('id', 'time_container');
+            timecont.appendChild(document.createTextNode(msg));
+            document.getElementsByTagName('fieldset')[0].appendChild(timecont);
+        }
+    }
+}
+
+//5초마다 실행 되도록 한다
+window.onload = function () {
+	
+    // HTML5 LocalStorage  지원 브라우저 여부 판별 
+    if ('localStorage' in window && window['localStorage'] !== null) {
+    	
+        // LocalStorage  값을 불러온다 
+        getFormState();
+        
+        saveFormState();
+        // 500초마다  LocalStorage 에 값을 저장한다. 
+        //setInterval('saveFormState()', 500 * 1000);
+    }
+}
+</script>
+</head>
+<body>
+	<section>
+		<form method="post">
+			<fieldset>
+				<ol>
+					<li>
+						<label>ID : </label>
+						<input name="id"><br>
+					</li>
+					<li>
+						<label>Name : </label>
+						<input name="name"><br>
+						</li>
+					<li>
+						<label>Phone</label> 
+						<input name="phone"><br>
+						</li>
+					<li>
+						<label>Address : </label> 
+						<input name="address"><br>
+						</li>
+					<li>
+						<label>Job : </label> 
+						<input name="job"><br>
+						</li>
+					<li>
+						<label>Comments:</label> 
+						<textarea rows="10" cols="20" name="comments"></textarea>
+					</li>
+					<li><input type="submit" name="send" value="Submit" /></li>
+				</ol>
+			</fieldset>
+		</form>
+	</section>
+  </script>
+</body>
+</html>
