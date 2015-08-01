@@ -51,3 +51,9 @@
 ### Reference
  - Raspberry GPIO : http://raspberrypi.org
  - WS2801 Data Sheet : https://www.adafruit.com/datasheets/WS2801.pdf
+
+
+## GPIO in Raspberry pi 2
+
+![](http://raspberrypi.ssu.ac.kr/files/attach/images/134/387/311a169b7b18ffb16a8d912c7870c2ff.png)
+![](http://raspberrypi.ssu.ac.kr/files/attach/images/134/387/9139466714267f511a61e8eb51a06ded.jpg)
