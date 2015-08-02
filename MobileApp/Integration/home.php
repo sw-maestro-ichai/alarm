@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+
+<title>Home</title>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+<link rel="stylesheet" href="./CSS/style_home.css">
+<link rel="stylesheet" href="./CSS/style.css">
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script src="./js/weather.js"></script>
+<script src="./js/settings.js"></script>
+<script src="./js/WebLogPage.js"></script>
+</head>
+    
+<body>
+    <section data-role="page" id="Home">
+        <div data-role="content">
+            <div data-role="text">
+               <p id="header">Current State</p>
+            </div>
+            <div data-role="image" id="image-wrapper" >
+                <a onClick="location.href='webLog.php'" data-transition="pop"><img src="./res/cloud-storm.png" alt="current state image" id="image"/></a>
+            </div>
+            <div data-role="controlgroup" data-type="vertical" id="button-group" align="center">
+                <a onClick="location.href='environment.php'" onClick="javascript.function(); return false;" data-role="button" data-icon="arrow-r" data-iconpos="right" data-transition="slide"><img src="./res/monitor.png" id="monitor"/>근무환경</a>
+                <a onClick="location.href='settings.php'" data-role="button" data-icon="arrow-r" data-iconpos="right" data-transition="slide"><img src="./res/gear.png" id="gear"/>환경설정</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
