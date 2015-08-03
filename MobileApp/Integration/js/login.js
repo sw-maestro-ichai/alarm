@@ -6,12 +6,14 @@
         
 $(function(){
     $('a#connect').click(function() {
-        if(document.getElementById('ip_address').value == "1234") {
-            $.mobile.changePage("Home.html#Home", {transition: "slide"} );
-        }
-        else {
-            alert('ip가 정확하지 않습니다.');
-        }
+         location.href="./loginProc.php?ip="+$("#ip_address").val();
+	//if(document.getElementById('ip_address').value == "1234") {
+  
+         //	$.mobile.changePage("Home.html#Home", {transition: "slide"} );
+        //}
+        //else {
+        //    alert('ip가 정확하지 않습니다.');
+        // }
     });
 
 //    $('a#exit').click(function() {
