@@ -37,6 +37,7 @@
 
 ### Python 실행 환경 설정
 
+
   - Raspbian 에서는 기본적으로 python 이 설치되어 있으며 다른 OS 의 경우 해당 OS python 을 설치한다.
 
 > sudo apt-get install python-dev
@@ -45,6 +46,28 @@
 
 > sudo pip install spidev
 
+
+## Python 으로 LED 모듈 동작시키기
+
+> git : https://github.com/sw-maestro-ichai/alarm.git
+
+> /alarm/Rpi-server/Control-RGB-LED/
+
+실행방법
+
+  1. RGB 모듈의 12v 를 외부 전원 + 극에 연결한다
+  2. RGB 모듈의 GND 를 라즈베리파이의 GND ( 3 ) 번 핀에 연결한다.
+  3. RGB 모듈의 DI ( Data Input ) 을 19번 핀에 연결한다.
+  4. RGB 모듈의 CI ( Clock Input ) 을 23번 핀에 연결한다.
+  5. 모듈화 된 파일들을 실행시킨다.
+
+  ```
+  python Red
+  python Blue
+  python Green
+  python White
+
+  ```
 
 
 
