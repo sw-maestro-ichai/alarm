@@ -55,13 +55,13 @@ def BreathMode(LedPos, r, g, b):
     try:
         while(True):
             for i in range(255):
-                OnLed(LedPos, r, i, b);
+                OnLed(LedPos, i, i, i);
             for i in range(255):
-                OnLed(LedPos, r, 255-i, b);
+                OnLed(LedPos, 255-i, 255-i, 255-i);
 
     except KeyboardInterrupt:
         OffLed()
         sys.exit(0)
 
-# g = 255 ( 녹색 ) 숨쉬기 모드
-BreathMode(2, 0, 255, 0)
+# g = 255 ( 백색 ) 숨쉬기 모드
+BreathMode(2, 255, 255, 255)
