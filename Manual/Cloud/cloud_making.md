@@ -14,26 +14,26 @@
 ###제작과정
 
 1.  필요한 부품들을 준비합니다.
-![thumb_IMG_1035_1024.jpg](./Cloud/thumb_IMG_1035_1024.jpg)
+![img](http://cfile29.uf.tistory.com/image/2364D03855C0AE9501F031)
 
 2. 철사로 구름의 틀을 제작합니다.
-![thumb_IMG_1083_1024.jpg](./Cloud/thumb_IMG_1083_1024.jpg)
+![img](http://cfile24.uf.tistory.com/image/2737883855C0AE972CECC1)
 
 3. 라즈베리파이와 스피커를 넣을 상자를 구름 틀 안에 넣고 고정시킵니다.
-![thumb_IMG_1094_1024.jpg](./Cloud/thumb_IMG_1094_1024.jpg)
+![img](http://cfile28.uf.tistory.com/image/27592A3855C0AE980D8860)
 
 4. 케이블타이를 이용하여 LED Chain을 구름 틀에 고정시킵니다.
-![thumb_IMG_1102_1024.jpg](./Cloud/thumb_IMG_1102_1024.jpg)
+![img](http://cfile10.uf.tistory.com/image/25624D3855C0AE9A03B6F4)
 
 5. 구름 틀 안과 밖에 솜을 넣어 구름 모양을 만듭니다.
-![thumb_IMG_1113_1024.jpg](./Cloud/thumb_IMG_1113_1024.jpg)
+![img](http://cfile8.uf.tistory.com/image/242F283855C0AE9B332734)
 
 6. 완성
 
 
 ###하드웨어
 회로도
-![Cloud Sketch_schem.png.ps.png](./Cloud/Cloud Sketch_schem.png.ps.png)
+![img](http://cfile24.uf.tistory.com/image/2257723855C0AE9E0E9651)
 
 
 ###참고
