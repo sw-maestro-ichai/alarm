@@ -1,9 +1,10 @@
 #
-# Raspberry pi 를 이용한 WS2801 Moudule control
+# WS2801 Moudule control By Raspberry pi 2
 # @Author JinjyuJung : Software Maestro 6th ICHAI
 # @Version : 1.0.0
 # @Date : 2015.8.5
 #
+
 
 import RPi.GPIO as GPIO, time, os, sys
 
@@ -32,7 +33,7 @@ def MakingColorBit(r, g, b):
     return ((r & 0xFF) << 16 | (g & 0xFF) << 8 | (b & 0xFF))
 
 # On Led
-# @Param LedPos Led 수, rgb 8비트 컬러코드
+# @Param LedPos Led Num, rgb 8bit color code
 def OnLed(LedPos, r, g, b):
     openSPI = file(SPI, "w")
     LED[LedPos] = MakingColorBit(r, g, b);
@@ -47,9 +48,9 @@ def OffLed():
     OnLed(2,0,0,0);
 
 #
-# 숨쉬기 모드로 LED 를 동작시키는 함수
-# @ Param LedPos Led 수 rgb 8비트 컬러코드
-# ^C 시그널 입력시 LED 종료
+# On LED BreathMode
+# @ Param LedPos Led num rgb bit colorcode
+# When ^C signal input, program terminate with led off
 #
 def BreathMode(LedPos, r, g, b):
     try:
@@ -63,5 +64,5 @@ def BreathMode(LedPos, r, g, b):
         OffLed()
         sys.exit(0)
 
-# g = 255 ( 백색 ) 숨쉬기 모드
+# rgb = 255 ( White ) BreathMode
 BreathMode(2, 255, 255, 255)
