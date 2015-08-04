@@ -85,3 +85,19 @@ nginx와 php가 제대로 설정되었는지 테스트해봅시다. 아래의 �
 
 ![image](http://cfile4.uf.tistory.com/image/2118C63D55C05A2E31B0A0)
 
+##MySQL 설치
+서버에는 많은 양의 데이터가 발생되고 저장되는데 이러한 것들을 저장하고 처리하기 위해 많은 사람들이 서버에 데이터베이스를 연동합니다. 우리는 이 서버에 MySQL이란 데이터베이스를 설치하여 서버에 데이터를 저장하고 이를 처리하도록 할 것입니다. 그렇다면 설치를 시작해봅시다. 아래의 명령어를 입력합니다. (fix-missing 옵션은 몇몇 패키지가 누락되서 설치되는 것을 방지하기 위해서 입력합니다)
+
+<pre><code>sudo apt-get install mysql-server --fix-missing</pre></code>
+
+설치 중간에 root계정의 암호를 입력하고 재확인을 위한 화면이 아래와 같이 두 번 뜰 것입니다. 암호를 입력합시다.
+
+![image](https://assets.digitalocean.com/articles/LEMP_Debian7/img1.png)
+
+MySQL이 잘 설치되었는지 확인해보기 위해 다음 명령어를 통해 root계정으로 MySQL 서버에 접속해봅시다.
+
+<pre><code>mysql -uroot -hlocalhost -p</pre></code>
+
+![image](http://cfile27.uf.tistory.com/image/240F113355C0A85B19413F)
+
+위와 같은 화면이 나온다면 MySQL이 설치된 것입니다.
