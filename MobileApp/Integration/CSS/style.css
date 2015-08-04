@@ -31,21 +31,27 @@
 .NoneBtn.ui-btn.ui-corner-all.ui-btn-inherit.ui-btn-active.ui-radio-on{
 	color: white;
 	background-color: black;
+	border-color:black;
 }
 .RedBtn.ui-btn.ui-corner-all.ui-btn-inherit.ui-btn-active.ui-radio-on{
 	color: white;
 	background-color: crimson;
+  	border-color:crimson;
 }
 .BlueBtn.ui-btn.ui-corner-all.ui-btn-inherit.ui-btn-active.ui-radio-on{
 	color: white;
 	background-color: dodgerblue;
+	border-color:dodgerblue;
 }
 .GreenBtn.ui-btn.ui-corner-all.ui-btn-inherit.ui-btn-active.ui-radio-on{
 	color: white;
 	background-color: forestgreen;
+	border-color:forestgreen;
+
 }
 .WhiteBtn.ui-btn.ui-corner-all.ui-btn-inherit.ui-btn-active.ui-radio-on{
 	color: black;
 	background-color: whitesmoke;
+	border-color:whitesmoke;
 }
 

@@ -17,7 +17,7 @@
 
 	<div data-role="header">
 		<h1>근무 환경</h1>
-        <a href="./Home.html" data-icon="back">뒤로</a>
+        <a href="./home.php" data-icon="back">뒤로</a>
 	</div>
 
 	<div data-role="content">

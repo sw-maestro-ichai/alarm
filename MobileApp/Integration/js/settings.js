@@ -1,91 +1,113 @@
 $(function(){
-    
-    $("input:radio[name='cloud']").on("change",function(){
-       if($("input:radio[id='cloudOn']").is(':checked')){
-              $(".second-List").show();
        
-       
-       }
-        if($("input:radio[id='cloudOff']").is(':checked')){
-             $(".second-List").hide();
-       
-       } 
-        
-    });
-        
-$("input:radio[name='alertLed']").on("change",function(){
-   
-  if( $("input:radio[name='basicLed']:checked").val()==
-     $("input:radio[name='alertLed']:checked").val()){
-       $("input:radio[name='alertLed']:checked").attr("checked",false);
-      alert("같은 색상으로 변경할 수 없습니다.");
-//      $(this).attr("checked",true);
-      $("input:radio[id='none']").attr("checked",'checked');
-  }
-});
-            
-$("input:radio[name='basicLed']").on("change",function(){
-     if( $("input:radio[name='basicLed']:checked").val()==
-     $("input:radio[name='alertLed']:checked").val()){
-             $("input:radio[name='basicLed']:checked").attr("checked",false);
-   
-      alert("같은 색상으로 변경할 수 없습니다.");
-//      $(this).attr("checked",true);
-//      $("input:radio[id='Bnone']").attr("checked",'checked');
-//    
-     }
-});
-    
+	$("input:radio[name='cloud']").on("change",function(){
+	    if($("input:radio[id='cloudOn']").is(':checked')){
+	    $(".second-List").show();
+	    } 
 
-$(document).ready(function(){
-		$('#OK').click(function(){
-			
-			if(!ChkDuplicateLedColor($(':checked'))){
-			// 중복되는 경우. 에러 발생
-				alert("평상시, 경고 LED의 색은 달라야합니다.");
-			}else{
-				alert("설정 완료");
-			}
-			
+	    if($("input:radio[id='cloudOff']").is(':checked')){
+	    $(".second-List").hide();
+	    } 
+
+	    });
+        //FIXME 색 중복 alert한번 뜬후 다시한번 중복시 none 색상변화 없는 오류
+	$("input:radio[name='alertLed']").on("change",function(){
+	    if( $("input:radio[name='basicLed']:checked").val()==
+		$("input:radio[name='alertLed']:checked").val()){
+	    $("input:radio[name='alertLed']:checked").attr("checked",false);
+	    alert("같은 색상으로 변경할 수 없습니다.");
+	    //      $(this).attr("checked",true);
+	    $("input:radio[id='none']").attr("checked",true);
+
+	    $("#alert-light-none").removeClass("ui-radio-off").addClass("ui-btn-active ui-radio-on"); }
+	    else{
+	    }
+	    });
+
+	$("input:radio[name='basicLed']").on("change",function(){
+		if( $("input:radio[name='basicLed']:checked").val()==
+		    $("input:radio[name='alertLed']:checked").val()){
+		$("input:radio[name='basicLed']:checked").attr("checked",false);
+		alert("같은 색상으로 변경할 수 없습니다.");
+		//      $(this).attr("checked",true);
+		$("input:radio[id='Bnone']").attr("checked",'true');
+		$("#basic-light-none").removeClass("ui-radio-off").addClass("ui-btn-active ui-radio-on");}
+		else{
+		}
 		});
 
 
-});
+	$(document).ready(function(){
+		$('#OK').click(function(){
+		    var cloudOnOff;
+		    var moniterOnOff;
+		    var soundOnOff;
+		    if($("input:radio[name=cloud]:checked").val()=="on"){
+		    cloudOnOff=1;
+		    }else{
+		    cloudOnOff=0;
+		    }
+		    if($("input:radio[name=monitering]:checked").val()=="on"){
+		    moniterOnOff=1;
+		    }else{
+		    moniterOnOff=0;
+		    }
+		    if($("input:radio[name=rbtn]:checked").val()=="on"){
+		    soundOnOff=1;
+		    }else{
+		    soundOnOff=0;
+		    }
+		    location.href="./settingsProc.php?cloudOnOff="+cloudOnOff+"&moniterOnOff="+moniterOnOff+
+		    "&basicLed="+$("input:radio[name=basicLed]:checked").val()+
+		    "&alertLed="+$("input:radio[name=alertLed]:checked").val()+
+		    "&soundOnOff="+soundOnOff;	
+
+		    //		if(!ChkDuplicateLedColor($(':checked'))){
+		    // 중복되는 경우. 에러 발생
+		    //			alert("평상시, 경고 LED의 색은 달라야합니다.");
+		    //		}else{
+		    //			alert("설정 완료");
+		    //		}
+
+		});
 
 
-var ServerIP; // 환경설정 들어갈 때 서버에서 가져와야됨
+	});
 
-function SettingData(dataList){
-	// 설정 데이터 json 클래스
 
-	this.cloud = $(dataList[0]).attr('value');
-	this.monitering = $(dataList[1]).attr('value');
-	this.basicLEDcolor = $(dataList[2]).attr('value');
-	this.alertLEDcolor = $(dataList[3]).attr('value');
-	this.alertSound = $(dataList[4]).attr('value');
+	var ServerIP; // 환경설정 들어갈 때 서버에서 가져와야됨
 
-	this.pushDataToServer = function(){
+	function SettingData(dataList){
+	    // 설정 데이터 json 클래스
+
+	    this.cloud = $(dataList[0]).attr('value');
+	    this.monitering = $(dataList[1]).attr('value');
+	    this.basicLEDcolor = $(dataList[2]).attr('value');
+	    this.alertLEDcolor = $(dataList[3]).attr('value');
+	    this.alertSound = $(dataList[4]).attr('value');
+
+	    this.pushDataToServer = function(){
 		// Todo 완료 버튼 누르면 서버로 전송하는 코드 작성
-	}	
+	    }	
 
-	this.pullDataFromServer = function(){
+	    this.pullDataFromServer = function(){
 		// Todo Main -> Setting 넘어갈때 기존의 설정값들 서버에서 가져오기
+	    }
+
 	}
 
-}
-
-function SendDataToServer(){
-}
+	function SendDataToServer(){
+	}
 
 
 
 
-function ChkDuplicateLedColor(dataList){
-	if($(dataList[2]).attr('value') === $(dataList[3]).attr('value')){
+	function ChkDuplicateLedColor(dataList){
+	    if($(dataList[2]).attr('value') === $(dataList[3]).attr('value')){
 		return false;
-	}else{
+	    }else{
 		return true;
+	    }
 	}
-}
-    
+
 });
