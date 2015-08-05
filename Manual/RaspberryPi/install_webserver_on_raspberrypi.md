@@ -109,3 +109,15 @@ MySQL이 잘 설치되었는지 확인해보기 위해 다음 명령어를 통�
 ![image](http://cfile27.uf.tistory.com/image/240F113355C0A85B19413F)
 
 위와 같은 화면이 나온다면 MySQL이 설치된 것입니다.
+
+이제 php를 통해 MySQL 서버에 접속할 수 있도록 해주는 php5-mysql패키지를 설치해봅시다. 아래의 명령어를 입력합니다.
+
+<pre><code>sudo apt-get install php5-mysql</pre></code>
+
+다음으로 local MySQL 서버에 CLI를 통해 접속하도록 해주는 mysql-client 패키지를 섫치합니다. 아래의 명령어를 입력해봅시다.
+
+<pre><code>sudo apt-get install php5-client</pre></code>
+
+
+####참고 링크
+>http://wingpgs.com/2015/01/%EB%9D%BC%EC%A6%88%EB%B2%A0%EB%A6%AC%ED%8C%8C%EC%9D%B4%EC%97%90-nginx-php-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/
