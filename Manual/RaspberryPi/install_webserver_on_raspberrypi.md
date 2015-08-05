@@ -51,7 +51,15 @@ nginx가 php를 사용한 컨텐트를 제공하도록 허가하기 위해 nginx
 
 ![image](http://cfile6.uf.tistory.com/image/2128B53D55C05A28294963)
 
-이제 우리의 서버는 소켓을 이용할 수 있습니다. 다음으로 보안상의 약점을 고치기 위해 PHP 설정을 고쳐야합니다. PHP 설정 파일을 고치기 위해 아래의 명령을 입력합니다.
+이제 우리의 서버는 소켓을 이용할 수 있습니다. 다음으로 아래의 부분을 찾아봅시다.
+
+![image](http://cfile27.uf.tistory.com/image/2160004055C212F213BF4B)
+
+아래와 같이 마지막 줄에 "try_files $uri =403;"을 입력한다.
+
+![image](http://cfile27.uf.tistory.com/image/254E214055C212F41B237F)
+
+다음으로 보안상의 약점을 고치기 위해 PHP 설정을 고쳐야합니다. PHP 설정 파일을 고치기 위해 아래의 명령을 입력합니다.
 
 <pre><code>sudo vi /etc/php5/fpm/php.ini</pre></code>
 
