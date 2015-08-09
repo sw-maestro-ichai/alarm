@@ -4,29 +4,31 @@ import time
 import Adafruit_DHT
 import MySQLdb
 
+# Import DHT11 driver
 sensor = Adafruit_DHT.DHT11
+
+# PIN for read sensor signal. 
 pin = 4
 
-db = MySQLdb.connect("localhost", "root", "thak12!@", "Setting")
+# Modify  (MySQL url, MySQL ID, MySQLpassword, DB_Name) 
+db = MySQLdb.connect("localhost", "root", "thak12!@", "alarm_db")
 cursor = db.cursor()
 
+# Read DHT11 Data ( Temperature, Humidity  )
+humidity, temperature = Adafruit_DHT.read_retry(sensor, pin) 
 
-
-
-temperature, humidity = Adafruit_DHT.read_retry(sensor, pin) 
-
+# When receive correct data, print data in console and update mysql
 if temperature is not None and humidity is not None:
-	print 'Humidity = {0:0.1f}% '.format(temperature)
-	print 'Temperature = {0:0.1f}*C ' .format(humidity)
-	cursor.excute("UPDATE Setting SET temperature = {0:0.1f}, humidity = {0:0.1f};".format(temperature, humidity))
+	print 'Temperature = {0:0.1f}*C '.format(temperature)
+	print 'Humidity = {0:0.1f}% ' .format(humidity)
+	cursor.execute("UPDATE Setting SET temperature = {0:0.1f};".format(temperature))
+	cursor.execute("UPDATE Setting Set humidity = {0:0.1f};".format(humidity))
 	db.commit()
-
-
 
 
 else: print 'Cant get sensor data!'
 
 
-
+# close MySQL
 db.close()
 
