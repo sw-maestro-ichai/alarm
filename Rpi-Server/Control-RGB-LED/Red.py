@@ -94,9 +94,9 @@ class AndyPiPixelLights:
 # self.colorwipe(self.ledpixels, self.Color(255, 0, 0), 0.05)
 #   self.colorwipe(self.ledpixels, self.Color(0, 255, 0), 0.05)
 #   self.colorwipe(self.ledpixels, self.Color(0, 0, 255), 0.05)
-		while(True):
-			self.colorwipe(self.ledpixels, self.Color(255, 0, 0), 0.3)
-		self.cls(self.ledpixels)
+		for i in range(3):
+			self.colorwipe(self.ledpixels, self.Color(255, 0, 0), 0.015)
+			self.cls(self.ledpixels)
    
    except KeyboardInterrupt:
         self.cls(self.ledpixels)
