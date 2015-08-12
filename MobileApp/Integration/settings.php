@@ -37,19 +37,19 @@ $(function(){
 	}
 	?>
 	<?
-	if($row->moniteringOnOff==1){
+	if($row->monitoringOnOff==1){
 	?>
-		$('#moniter-on-label').addClass('ui-btn-active');
-		$('#moniterOn').attr('checked', true);
-		$('#moniter-off-label').removeClass('ui-btn-active');
-		$('#moniterOff').attr('checked', false);
+		$('#monitor-on-label').addClass('ui-btn-active');
+		$('#monitorOn').attr('checked', true);
+		$('#monitor-off-label').removeClass('ui-btn-active');
+		$('#monitorOff').attr('checked', false);
 	<?
 	}else{
 	?>
-	    	$('#moniter-off-label').addClass('ui-btn-active');
-	    	$('#moniteringOff').attr('checked', true);
-	    	$('#moniter-on-label').removeClass('ui-btn-active');
-	        $('#moniteringOn').attr('checked', false);
+	    	$('#monitor-off-label').addClass('ui-btn-active');
+	    	$('#monitoringOff').attr('checked', true);
+	    	$('#monitor-on-label').removeClass('ui-btn-active');
+	        $('#monitoringOn').attr('checked', false);
 	<?
 	}
 	?>
@@ -126,10 +126,10 @@ $("#alert-light-<?echo $row->alertLight?>").removeClass("ui-radio-off").addClass
 <li class="second-List">
 <h4>Monitoring</h4>
 <fieldset data-role="controlgroup" data-type="horizontal" class="ui-li-aside" data-mini="true">
-<label class="MoniteringState" id="moniter-on-label" for="moniteringOn">On</label>
-<input type="radio" name="monitering" id="moniteringOn" value="on" checked="checked"/>
-<label for="moniteringOff" id="moniter-off-label" >Off</label>
-<input type="radio" name="monitering" id="moniteringOff" value="off"/>
+<label class="MonitoringState" id="monitor-on-label" for="monitoringOn">On</label>
+<input type="radio" name="monitoring" id="monitoringOn" value="on" checked="checked"/>
+<label for="monitoringOff" id="monitor-off-label" >Off</label>
+<input type="radio" name="monitoring" id="monitoringOff" value="off"/>
 </fieldset>
 </li>
 

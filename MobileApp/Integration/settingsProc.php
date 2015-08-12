@@ -10,7 +10,7 @@ if($_GET[cloudOnOff]==0){
     }
 }else{
     $result=mysql_query("update Setting set cloudOnOff='$_GET[cloudOnOff]',
-	    moniteringOnOff='$_GET[moniterOnOff]',
+	    monitoringOnOff='$_GET[monitorOnOff]',
 	    soundOnOff='$_GET[soundOnOff]',
 	    normalLight='$_GET[basicLed]',
 	    alertLight='$_GET[alertLed]'", $connect_db);
