@@ -8,7 +8,11 @@
     <link rel="stylesheet" href="CSS/style_home.css">
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-	<script src="./js/weather.js"></script>
+    <script src="./js/weather.js"></script>
+    <? include_once("./dbconfig.php");
+    	$result=mysql_query("select * from Setting", $connect_db);
+    	$row= mysql_fetch_object($result);
+    ?>
     </head> 
 <body> 
 
@@ -31,8 +35,8 @@
         
             <h2>사무실</h2>
             <ul data-role="listview" data-inset="true" data-type="horizontal">
-                <li>온도<p class="ui-li-aside"><strong>25°C</strong></p></li>
-                <li>습도<p class="ui-li-aside"><strong>50%</strong></p></li>
+                <li>온도<p class="ui-li-aside"><strong><?echo $row->temperature?></strong></p></li>
+                <li>습도<p class="ui-li-aside"><strong><?echo $row->humidity?></strong></p></li>
         </ul>
 	</div>
 
