@@ -1,4 +1,3 @@
-<!DOCTYPE html> 
 <html> 
 <head> 
 	<title>근무 환경</title> 
@@ -9,6 +8,7 @@
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <script src="./js/weather.js"></script>
+    <script src="./lib/jquery.xdomainajax.js"></script>
     <? include_once("./dbconfig.php");
     	$result=mysql_query("select * from Setting", $connect_db);
     	$row= mysql_fetch_object($result);
@@ -25,18 +25,19 @@
 	</div>
 
 	<div data-role="content">
-			<h2>서울 지역</h2>
+			<h2>실외 날씨</h2>
             <ul data-role="listview" data-inset="true" data-type="horizontal">
                 <li><div id="observ_time" align="right" class="ui-li-count"></div></li>
-                <li>날씨<div id="observ_state" data-icon="true" align="right"></div></li>
-                <li>온도<div id="observ_temper" class="ui-li-aside" style="font-size: 12px"></div></li>
-                <li>습도<div id="observ_humi" class="ui-li-aside" style="font-size: 12px"></div></li>
+                <li>날씨<div id="skyState" class="ui-li-aside" align="right"></div></li>
+                <li>온도<div id="temperature" class="ui-li-aside"></div></li>
+                <li>강수 상태<div id="rainsnow" class="ui-li-aside"></div></li>
+                <li>습도<div id="humidity" class="ui-li-aside"></div></li>
             </ul>
         
             <h2>사무실</h2>
             <ul data-role="listview" data-inset="true" data-type="horizontal">
-                <li>온도<p class="ui-li-aside"><strong><?echo $row->temperature?></strong></p></li>
-                <li>습도<p class="ui-li-aside"><strong><?echo $row->humidity?></strong></p></li>
+                <li>온도<div class="ui-li-aside"><?echo $row->temperature?></div></li>
+                <li>습도<div class="ui-li-aside"><?echo $row->humidity?></div></li>
         </ul>
 	</div>
 
