@@ -5,6 +5,7 @@
  */
 $(document).on('pageinit', '#Environment', function() {
     //getLocation();
+    // 역삼 2동 : 61, 125
     xml2jsonCurrentWth(61,125);
 });
 
@@ -149,7 +150,7 @@ function xml2jsonCurrentWth(nx, ny){
     fileName += "&base_date=" + today;
     fileName += "&base_time=" + basetime;
     fileName += "&nx=" + _nx + "&ny=" + _ny;
-    fileName += "&pageNo=1&numOfRows=6";
+    fileName += "&pageNo=1&numOfRows=300";
     fileName += "&_type=json";
 
     $.ajax({
@@ -167,47 +168,44 @@ function xml2jsonCurrentWth(nx, ny){
             sky = jsonObj[0].response.body.items.item[4].obsrValue,
             temp = jsonObj[0].response.body.items.item[5].obsrValue;
 
-            var observTime = [];
-            observTime.push(yyyy+"-"+mm+"-"+dd+" "+hours+":00"); 
-            document.getElementById('observ_time').innerHTML = observTime.join('');
+            var observTime = '<div>'+yyyy+'-'+mm+'-'+dd+' '+hours+':00</div>'; 
+            $('#observ_time').html(observTime);
            
-            var skyState = [];
+            var skyState = '';
             if (sky == 1) {
-                skyState.push("맑음");
+                skyState = '<div>맑음</div>';
             }
             else if (sky == 2) {
-                skyState.push("구름 조금");
+                skyState = '<div>구름 조금</div>';
             }
             else if (sky == 3) {
-                skyState.push("구름 많음");
+                skyState = '<div>구름 많음</div>';
             }
             else {
-                skyState.push("흐림");
+                skyState = '<div>흐림</div>';
             }
-            document.getElementById('skyState').innerHTML = skyState.join('');
+            $('#skyState').html(skyState);
 
-            var temperature = [];
-            temperature.push(temp+"°C");
-            document.getElementById('temperature').innerHTML = temperature.join('');
+            var temperature = '<div>'+temp+'°C</div>';
+            $('#temperature').html(temperature);
 
-            var rainsnowState = [];
+            var rainsnowState = '';
             if (rainsnow == 0) {
-                rainsnowState.push("없음");
+                rainsnowState = '<div>없음</div>';
             }
             else if (rainsnow == 1) {
-                rainsnowState.push("비");
+                rainsnowState = '<div>비</div>';
             }
             else if (rainsnow == 2) {
-                rainsnowState.push("비와 눈");
+                rainsnowState = '<div>비와 눈</div>';
             }
             else {
-                rainsnowState.push("눈");
+                rainsnowState = '<div>눈</div>';
             }
-            document.getElementById('rainsnow').innerHTML = rainsnowState.join('');
+            $('#rainsnow').html(rainsnowState);
 
-            var humidity = [];
-            humidity.push(humi+"%");
-            document.getElementById('humidity').innerHTML = humidity.join('');
+            var humidity = '<div>'+humi+'%</div>';
+            $('#humidity').html(humidity);
         },
         error:function(request,status,error){
             alert("다시 시도해주세요.\n" + "code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
