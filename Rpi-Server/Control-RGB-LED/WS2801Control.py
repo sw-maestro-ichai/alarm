@@ -1,11 +1,11 @@
 #
-#
-#
+# 
+# 
 #
 #
 
 
-# Import list
+# - Import list
 # GPIO
 # time
 # os
@@ -38,9 +38,13 @@ SPI = "/dev/spidev0.0"
 def MakingColorBit(r, g, b):
     return ((r & 0xFF) << 16 | (g & 0xFF) << 8 | (b & 0xFF))
 
+# For playing sound using bash shell command
 def playSound():
     os.system('omxplayer /home/pi/alarm/Rpi-Server/Sound/thunder.mp3')
 
+# OnLedAll function that writing color code in spi device
+# @param colorCode RGB Code
+# @return void 
 def OnLedAll(colorCode):
     openSPI = file(SPI, "w")
     for i in range(NumOfLed):
@@ -50,9 +54,15 @@ def OnLedAll(colorCode):
     openSPI.close()
     time.sleep(0.002)
 
+# OffLed function that initalize all led module rgb 0,0,0 (OFF)
+# @param void
+# @return void
 def OffLed():
     OnLedAll(0)
 
+# OnLedRandom that write colorCode in sequential 10 led for lightning effect
+# @param colorCode
+# @return void
 def OnLedRandom(colorCode):
     openSPI = file(SPI, "w")
     color = MakingColorBit(0, 0, 0)
@@ -63,7 +73,7 @@ def OnLedRandom(colorCode):
         openSPI.write(chr((color) & 0xFF))
 
     
-    for j in range(5):
+    for j in range(10):
         openSPI.write(chr((colorCode>>16) & 0xFF))
         openSPI.write(chr((colorCode>>8) & 0xFF))
         openSPI.write(chr((colorCode) & 0xFF))
@@ -71,7 +81,8 @@ def OnLedRandom(colorCode):
     openSPI.close()
     time.sleep(0.002)
 
-
+# 
+#
 def BreathMode(text):
     for loop in range(5):
         if text == "None":
@@ -125,7 +136,9 @@ def textToColor(text):
 
 # Start source code. main flow
 if len(sys.argv) != 4:
-    print "WS2801 [ Normal | Alert ] [ colorCode ] [ Sound ON / OFF]"
+    print "WS2801 [ mode = \"Normal\" | \"Alert\" ]"
+    print "       [ color = \"Red\" \"Green\" \"Blue\" \"White\" \"None\" ]"
+    print "       [ alert sound = \"ON\" / \"OFF\" ]"
     sys.exit(0)
 
 if sys.argv[1] == "Normal":
