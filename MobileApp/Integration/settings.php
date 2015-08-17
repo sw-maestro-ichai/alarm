@@ -136,15 +136,15 @@ $("#alert-light-<?echo $row->alertLight?>").removeClass("ui-radio-off").addClass
 <li class="BasicLEDstate second-List">
 <h4>평상시 LED</h4>
 <div class="colorBtnGroup" id="basic-led" data-role="controlgroup" data-type="horizontal" data-mini="true">
-<label class="NoneBtn" for="Bnone" id="basic-light-None">None</label>
+<label class="NoneBtn" for="Bnone" id="basic-light-none">None</label>
 <input type="radio" name="basicLed" id="Bnone" value="None" />
-<label class="RedBtn" for="Bled1" id="basic-light-Red">Red</label>
+<label class="RedBtn" for="Bled1" id="basic-light-red">Red</label>
 <input type="radio" name="basicLed" id="Bled1" value="Red"/>
-<label class="BlueBtn" for="Bled2" id="basic-light-Blue">Blue</label>
+<label class="BlueBtn" for="Bled2" id="basic-light-blue">Blue</label>
 <input type="radio" name="basicLed" id="Bled2" value="Blue"/>
-<label class="GreenBtn" for="Bled3" id="basic-light-Green">Green</label>
+<label class="GreenBtn" for="Bled3" id="basic-light-green">Green</label>
 <input type="radio" name="basicLed" id="Bled3" value="Green"/>
-<label class="WhiteBtn" for="Bled4"id="basic-light-White" >White</label>
+<label class="WhiteBtn" for="Bled4"id="basic-light-white" >White</label>
 <input type="radio" name="basicLed" id="Bled4" value="White"/>
 </div>
 </li>
@@ -152,15 +152,15 @@ $("#alert-light-<?echo $row->alertLight?>").removeClass("ui-radio-off").addClass
 <li class="second-List">
 <h4>경고 LED</h4>
 <div class="colorBtnGroup" id="alert-led" data-role="controlgroup" data-type="horizontal" data-mini="true">
-<label class="NoneBtn" id="alert-light-None" for="none">None</label>
+<label class="NoneBtn" id="alert-light-none" for="none">None</label>
 <input type="radio" name="alertLed" id="none" value="None" />
-<label class="RedBtn" id="alert-light-Red" for="led1">Red</label>
+<label class="RedBtn" id="alert-light-red" for="led1">Red</label>
 <input  type="radio" name="alertLed" id="led1" value="Red"/>
-<label class="BlueBtn" id="alert-light-Blue" for="led2">Blue</label>
+<label class="BlueBtn" id="alert-light-blue" for="led2">Blue</label>
 <input type="radio" name="alertLed" id="led2" value="Blue"/>
-<label class="GreenBtn" for="led3" id="alert-light-Green">Green</label>
+<label class="GreenBtn" for="led3" id="alert-light-green">Green</label>
 <input type="radio" name="alertLed" id="led3" value="Green"/>
-<label class="WhiteBtn" for="led4" id="alert-light-White">White</label>
+<label class="WhiteBtn" for="led4" id="alert-light-white">White</label>
 <input type="radio" name="alertLed" id="led4" value="White"/>
 </div>
 </li>

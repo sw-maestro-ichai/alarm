@@ -15,13 +15,13 @@ $(function(){
 	    if( $("input:radio[name='basicLed']:checked").val()==
 		$("input:radio[name='alertLed']:checked").val()){
 		// None 은 중복 가능하도록 만들어줌
-		if ( ( $("input:radio[name='alertLed']:checked").val() == "none" ) && ( $("input:radio[name='basicLed']:checked").val() == "none" ) ) {
+		if ( ( $("input:radio[name='alertLed']:checked").val() == "None" ) && ( $("input:radio[name='basicLed']:checked").val() == "None" ) ) {
 	    	}
 	    else {
 	    $("input:radio[name='alertLed']:checked").attr("checked",false);
 	    alert("같은 색상으로 변경할 수 없습니다.");
 	    //      $(this).attr("checked",true);
-	    $('input[name=alertLed][value="none"]').prop('checked','checked');
+	    $('input[name=alertLed][value="None"]').prop('checked','checked');
 	    $("#alert-light-none").removeClass("ui-radio-off").addClass("ui-btn-active ui-radio-on"); }
 	    }
 	    else{
@@ -32,13 +32,13 @@ $(function(){
 	   	if( $("input:radio[name='basicLed']:checked").val()==
 		    $("input:radio[name='alertLed']:checked").val()){
 		    // None 은 중복 가능하도록 만들어줌
-		    if ( ( $("input:radio[name='alertLed']:checked").val() == "none" ) && ( $("input:radio[name='basicLed']:checked").val() == "none" ) ) {
+		    if ( ( $("input:radio[name='alertLed']:checked").val() == "None" ) && ( $("input:radio[name='basicLed']:checked").val() == "None" ) ) {
 		    }
 		else {
 		$("input:radio[name='basicLed']:checked").attr("checked",false);
 		alert("같은 색상으로 변경할 수 없습니다.");
 		//      $(this).attr("checked",true);
-		$('input[name=basicLed][value="none"]').prop('checked','checked');
+		$('input[name=basicLed][value="None"]').prop('checked','checked');
 		$("#basic-light-none").removeClass("ui-radio-off").addClass("ui-btn-active ui-radio-on");}
 		}
 		else{
