@@ -19,7 +19,7 @@
 
 <body>
  <? include_once("./dbconfig.php");
-  $result=mysql_query("select * from Monitoring",$connect_db);
+  $result=mysql_query("select * from Monitoring order by id desc limit 10",$connect_db);
   $text=''; 
     
  ?>

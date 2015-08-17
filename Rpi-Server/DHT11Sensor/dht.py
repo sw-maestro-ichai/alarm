@@ -11,7 +11,7 @@ sensor = Adafruit_DHT.DHT11
 pin = 4
 
 # Modify  (MySQL url, MySQL ID, MySQLpassword, DB_Name) 
-db = MySQLdb.connect("localhost", "root", "thak12!@", "alarm_db")
+db = MySQLdb.connect("localhost", "root", "casper", "alarm_db")
 cursor = db.cursor()
 
 # Read DHT11 Data ( Temperature, Humidity  )

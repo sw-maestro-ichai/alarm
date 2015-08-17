@@ -107,6 +107,7 @@ def BreathMode(text):
                 OnLedAll(MakingColorBit(i,i,i))
             for i in range(255):
                 OnLedAll(MakingColorBit(255-i,255-i,255-i))
+
   
 
 def LightningMode(colorCode):
@@ -140,7 +141,6 @@ if len(sys.argv) != 4:
     print "       [ alert sound = \"ON\" / \"OFF\" ]"
     sys.exit(0)
 
-
 if sys.argv[1] == "Normal":
     led = threading.Thread(target = BreathMode, args = (sys.argv[2],))
     led.start()
@@ -150,6 +150,8 @@ elif sys.argv[1] == "Alert":
     if sys.argv[3] == "ON":
         sound = threading.Thread(target = playSound)
         sound.start()
+    print sys.argv[1]
+    print sys.argv[2]
+    print sys.argv[3]
 
-OffLed()
 
