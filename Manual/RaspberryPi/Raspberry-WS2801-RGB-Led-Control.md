@@ -59,15 +59,29 @@
   2. RGB 모듈의 GND 를 라즈베리파이의 GND ( 3 ) 번 핀에 연결한다.
   3. RGB 모듈의 DI ( Data Input ) 을 19번 핀에 연결한다.
   4. RGB 모듈의 CI ( Clock Input ) 을 23번 핀에 연결한다.
-  5. 모듈화 된 파일들을 실행시킨다.
+  5. 다음과 같은 명령어를 이용하여 LED를 동작시킬 수 있다.
 
-  ```
-  python Red
-  python Blue
-  python Green
-  python White
 
-  ```
+>  python WS2801Control.py [ 모드 ] [ 색상 ] [ 천둥 ]
+
+ - 모드
+- "Normal" : Brath Mode LED 가 점멸한다
+- "Alert" : 번개치는 듯한 LED 효과가 동작한다
+
+- 색상
+ - "Red" "Green" "Blue" "White" "None"
+
+
+ > Example
+
+ > python WS2801Control.py Alert White ON 을 입력할 경우
+ 
+ 천둥소리를 동반한 흰 번개효과 LED 가 발생한다.
+
+
+ -  천둥
+  - "ON" : LED 효과와 함께 천둥소리를 스피커를 통해 출력한다
+  - "OFF" : 사운드 효과를 사용하지 않는다.
 
 
 
