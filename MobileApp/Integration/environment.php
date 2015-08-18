@@ -36,8 +36,8 @@
         
             <h2>사무실</h2>
             <ul data-role="listview" data-inset="true" data-type="horizontal">
-                <li>온도<div class="ui-li-aside"><?echo $row->temperature?></div></li>
-                <li>습도<div class="ui-li-aside"><?echo $row->humidity?></div></li>
+                <li>온도<div class="ui-li-aside"><?echo $row->temperature?>°C</div></li>
+                <li>습도<div class="ui-li-aside"><?echo $row->humidity?>%</div></li>
         </ul>
 	</div>
 
