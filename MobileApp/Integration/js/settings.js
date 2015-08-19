@@ -82,7 +82,7 @@ $(function(){
 		}
 		else{
             // 가장 최근에 선택된 값을 저장
-            var checkedvalue = $("input:radio[name='basicLed']:checked").prop("checkedval");
+            var checkedvalue = $("input:radio[name='basicLed']:checked").val();
             $("input:radio[name='basicLed']").prop("checkedval", checkedvalue);
 		}
     });
