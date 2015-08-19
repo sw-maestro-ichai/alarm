@@ -114,9 +114,9 @@ MySQL이 잘 설치되었는지 확인해보기 위해 다음 명령어를 통�
 
 <pre><code>sudo apt-get install php5-mysql</pre></code>
 
-다음으로 local MySQL 서버에 CLI를 통해 접속하도록 해주는 mysql-client 패키지를 섫치합니다. 아래의 명령어를 입력해봅시다.
+다음으로 local MySQL 서버에 CLI를 통해 접속하도록 해주는 mysql-client 패키지를 설치합니다. 아래의 명령어를 입력해봅시다.
 
-<pre><code>sudo apt-get install php5-client</pre></code>
+<pre><code>sudo apt-get install mysql-client</pre></code>
 
 
 ####참고 링크
