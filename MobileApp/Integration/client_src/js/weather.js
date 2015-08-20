@@ -3,18 +3,23 @@
  * Display current weather infomation
  * connect by Ajax
  */
-$(document).on('pageinit', '#Environment', function() {
+//$(document).on('pageinit'i, '#Environment', function() {
 //$(document).delegate('#Home', 'pageinit', function() {
     //getLocation();
     // 역삼 2동 : 61, 125
-    xml2jsonCurrentWth(61,125);
-	// id = monitor
+//    xml2jsonCurrentWth(61,125);
+
+//	alert("aa");
+	
+//	getEnvironmentInfo();// id = monitor
 	//$(this).find('#button-group').find('a').bind('click', function () {
 	//	window.location.href = "environment.php?="+window.obTime;
 	//});
-});
-
-//$(document).delegate('#Environment', 'pageshow', function() {
+//});
+$(function(){
+	xml2jsonCurrentWth(61,125);
+	getEnvironmentInfo();
+	//$(document).delegate('#Environment', 'pageshow', function() {
 //	var obDate = location.href.substr(location.href.indexOf('=') + 1, 10);
 //	var obTime = location.href.substr(location.href.lastIndexOf('=') + 1);
 //	$('#observ_time').html('<div>'+obDate+' '+obTime+'</div>');
@@ -29,8 +34,8 @@ $.ajax({
    	   success : function(jsontext) {
 	  				var data = JSON.parse(jsontext);               
         			if(data.result=='success'){
-						$("#temperature").append(data.temperature);
-						$("#humidity").append(data.humidity);
+						$("#temperature-inner").append(data.temperature+" 도");
+						$("#humidity-inner").append(data.humidity+" %");
 					}else{
         			    alert(data.result_text);
 					}
@@ -262,4 +267,4 @@ function rplLine(value){
         return value;
     }
 }
-
+});

@@ -4,11 +4,15 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8"> 
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
-    <link rel="stylesheet" href="CSS/style_home.css">
+    <link rel="stylesheet" href="css/style_home.css">
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <script src="./js/weather.js"></script>
     <script src="./lib/jquery.xdomainajax.js"></script>
+    <script src="./js/common.js"></script>
+    <script src="cordova.js"></script>
+<script src="phonegap.js"></script>
+  
     </head> 
 <body> 
 
@@ -32,8 +36,8 @@
         
             <h2>사무실</h2>
             <ul data-role="listview" data-inset="true" data-type="horizontal">
-                <li>온도<div class="ui-li-aside">°C</div></li>
-                <li>습도<div class="ui-li-aside"> %</div></li>
+                <li>온도<div class="ui-li-aside" id="temperature-inner"></div></li>
+                <li>습도<div class="ui-li-aside" id="humidity-inner"></div></li>
         </ul>
 	</div>
 

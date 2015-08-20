@@ -6,11 +6,28 @@
 
 <title>Login</title>
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
-<link rel="stylesheet" href="./CSS/style_home.css">
-<link rel="stylesheet" href="./CSS/style.css">
+<link rel="stylesheet" href="./css/style_home.css">
+<link rel="stylesheet" href="./css/style.css">
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+<script src="./js/common.js"></script>
 <script src="./js/login.js"></script>
+<script src="phonegap.js"></script>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/PushNotification.js"></script> 
+<script type="text/javascript" src="js/config.js"></script>
+ <script>
+    
+    document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+    console.log(navigator.vibrate);
+}
+     function ab(){
+         
+         navigator.vibrate(3000);
+     }
+    </script>      
     
 </head>
 
@@ -38,7 +55,7 @@
             </div>
             <div id="button-wrapper" align="center">
                  <a href="#" data-role="button" data-inline="true" id="connect" data-theme="">로그인</a>
-                 <a href="#" data-role="button" data-inline="true" id="exit">종료</a>
+                 <a href="#" data-role="button" data-inline="true" id="exit" onclick=javascript:ab()>종료</a>
             </div>
        </div>
     </section>

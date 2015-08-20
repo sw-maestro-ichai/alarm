@@ -114,7 +114,7 @@ $(function(){
 	   	   success : function(jsontext) {
 		  				var data = JSON.parse(jsontext);               
 	        			if(data.result=='success'){
-							location.href="./home.php";
+							location.href="./home.html";
 						}else{
 	        			    alert(data.result_text);
 						}
