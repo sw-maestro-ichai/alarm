@@ -7,7 +7,6 @@ $now = date ("Y-m-d H:i:s", time());
     $normalLight = $row -> normalLight;
     $alertLight  = $row -> alertLight;
     $cloudOnOff  = $row -> monitoringOnOff;
-
     $soundOnOff  = $row -> soundOnOff;
     if($soundOnOff=='1'){
        $soundOnOff='ON';
@@ -17,24 +16,19 @@ $now = date ("Y-m-d H:i:s", time());
     
 if($_POST['data']=="error"){
 	
-    mysql_query("insert into Monitoring set takeTime = '$time',
-		                            isTime   = '$now',
-					    isSuccess = 'error'	
-		   ",$connect_db);
+    sql_query("insert into Monitoring set takeTime = '$time',
+				                            isTime   = '$now'
+		   	 ");
 
     //shell_exec("python WS2801Control.py Alert White ON"); 
     //system("python WS2801Control.py Alert White ON");
    
      exec("sudo python WS2801Control.py Alert ".$alertLight." ".$soundOnOff);
 
-
-
-
 }else{
-    mysql_query("insert into Monitoring set takeTime = '$time',
-		                            isTime   = '$now',
-                                            isSuccess= 'success'   
-		   ",$connect_db);
+    sql_query("insert into Monitoring set takeTime = '$time',
+		                            		isTime   = '$now'
+		   	   ");
 //     $command = escapeshellcmd('python WS2801Control.py Alert White ON');
 //    $output = shell_exec($command);
 //    echo $output;

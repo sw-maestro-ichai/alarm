@@ -1,0 +1,68 @@
+#splash {
+    background-color: black;
+}
+#cloud {
+    margin-top: 100px;
+ 
+}
+
+.vCenter { display: table; width: 400px; height: 400px; border: 1px; margin:0 auto;  }
+
+.vCenter span { display: table-cell; text-align: center; vertical-align: middle; }
+
+#cloud-wrapper {
+/*    margin: 10px auto;*/
+    width: 350px;
+}
+#usr {
+    width: 100px;
+    height: 100px;
+}
+#usr-wrapper {
+    margin: 20px auto;
+    width: 100px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+.login {
+    width: 330px;
+    margin: 0 auto;
+}
+#connect {
+    width: 300px;
+}
+#exit {
+    width: 300px;
+}
+#button-wrapper {
+    vertical-align: middle;
+    text-align: center;
+    margin: 20px auto;
+}
+#header {
+    text-align: center;
+    font-size: 30px;
+    margin: 10px auto;
+}
+#image {
+    width: 140px;
+    height: 140px;
+}
+#image-wrapper {
+    margin: 20px auto;
+    width: 140px;
+}
+#button-group {
+    width: 250px;
+    margin: 0 auto;
+}
+#monitor {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+#gear {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px; 
+}
