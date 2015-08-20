@@ -4,11 +4,21 @@
  * connect by Ajax
  */
 $(document).on('pageinit', '#Environment', function() {
+//$(document).delegate('#Home', 'pageinit', function() {
     //getLocation();
     // 역삼 2동 : 61, 125
     xml2jsonCurrentWth(61,125);
+	// id = monitor
+	//$(this).find('#button-group').find('a').bind('click', function () {
+	//	window.location.href = "environment.php?="+window.obTime;
+	//});
 });
 
+//$(document).delegate('#Environment', 'pageshow', function() {
+//	var obDate = location.href.substr(location.href.indexOf('=') + 1, 10);
+//	var obTime = location.href.substr(location.href.lastIndexOf('=') + 1);
+//	$('#observ_time').html('<div>'+obDate+' '+obTime+'</div>');
+//});
 
 function getLocation(){
     if(navigator.geolocation){
@@ -168,9 +178,11 @@ function xml2jsonCurrentWth(nx, ny){
             sky = jsonObj[0].response.body.items.item[4].obsrValue,
             temp = jsonObj[0].response.body.items.item[5].obsrValue;
 
-            var observTime = '<div>'+yyyy+'-'+mm+'-'+dd+' '+hours+':00</div>'; 
-            $('#observ_time').html(observTime);
-           
+            var observTime = '<div>'+yyyy+'-'+mm+'-'+dd+'&nbsp;'+hours+':00</div>'; 
+            //$(this).attr('observ', observTime);
+            //window.obTime = yyyy+'-'+mm+'-'+dd+'='+hours+':00';
+			$('#observ_time').html(observTime);
+
             var skyState = '';
             if (sky == 1) {
                 skyState = '<div>맑음</div>';
@@ -184,10 +196,13 @@ function xml2jsonCurrentWth(nx, ny){
             else {
                 skyState = '<div>흐림</div>';
             }
-            $('#skyState').html(skyState);
+            //$(this).attr('skysnow', skyState);
+			$('#skyState').html(skyState);
 
             var temperature = '<div>'+temp+'°C</div>';
-            $('#temperature').html(temperature);
+            //$(this).attr('temp', temperature);
+			//window.temp = temperature;
+			$('#temperature').html(temperature);
 
             var rainsnowState = '';
             if (rainsnow == 0) {
@@ -202,10 +217,14 @@ function xml2jsonCurrentWth(nx, ny){
             else {
                 rainsnowState = '<div>눈</div>';
             }
-            $('#rainsnow').html(rainsnowState);
+            //$(this).attr('rain', rainsnowState);
+			//window.rs = rainsnowState;
+			$('#rainsnow').html(rainsnowState);
 
             var humidity = '<div>'+humi+'%</div>';
-            $('#humidity').html(humidity);
+            //$(this).attr('humi', humidity);
+			//window.humi = humidity;
+			$('#humidity').html(humidity);
         },
         error:function(request,status,error){
             alert("다시 시도해주세요.\n" + "code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);

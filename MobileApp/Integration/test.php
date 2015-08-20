@@ -1,11 +1,11 @@
-p?php
+<?php
 if( ini_get('safe_mode') ){
 echo 'safe';    // Do it the safe mode way
 }else{
 echo 'not safe';
     // Do it the regular way
 }
- 
+  // echo shell_exec("ls -al"); 
    echo shell_exec("sudo python WS2801Control.py Alert White ON");
    //echo exec("python White.py");
    //echo shell_exec("python White.py");

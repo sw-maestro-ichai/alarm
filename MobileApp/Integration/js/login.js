@@ -6,19 +6,26 @@
         
 $(function(){
     $('a#connect').click(function() {
-         location.href="./loginProc.php?ip="+$("#ip_address").val();
-	//if(document.getElementById('ip_address').value == "1234") {
-  
-         //	$.mobile.changePage("Home.html#Home", {transition: "slide"} );
-        //}
-        //else {
-        //    alert('ip가 정확하지 않습니다.');
-        // }
-    });
 
-//    $('a#exit').click(function() {
-//        $(window).bind("beforeunload", function() { 
-//        return confirm("Do you really want to close?"); 
-//        });
-//    });
+    $.ajax({
+      // 결과를 한글로 받을 수 있다.
+	  url : "http://172.16.101.207/mgmg_api.php",
+	  dataType : "html",
+          type : "POST",
+          data : { "function" : "login", "ip" : $("#ip_address").val()},
+  
+	  success : function(jsontext) {
+	  	var data = JSON.parse(jsontext);               
+		//alert(data.result_text);
+                if(data.result=='success'){
+		location.href="./home.php";
+		}else{
+                alert(data.result_text);
+		}
+      },
+	  error: function(request, textStatus, errorThrown) {
+		alert('error: ' + textStatus);
+	  }
+    });
+    });
 });

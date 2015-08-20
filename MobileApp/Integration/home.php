@@ -13,6 +13,7 @@
 <script src="./js/weather.js"></script>
 <script src="./js/settings.js"></script>
 <script src="./js/WebLogPage.js"></script>
+<script src="./lib/jquery.xdomainajax.js"></script>
 </head>
     
 <body>

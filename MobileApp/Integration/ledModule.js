@@ -1,7 +1,7 @@
 /**
  * 
  */
-
+		
 var casper = require('casper').create({
 	verbose: true,
 	logLevel: 'debug'
@@ -29,7 +29,7 @@ casper.start("http://1.234.20.120/");
 
 			      }, 
 			      function timeout() { 
-				    casper.open("http://172.16.101.178/ledModule.php",{
+				    casper.open("http://127.0.0.1/ledModule.php",{
   			            	method: 'post',
 			            	data  :	 {
 						'data' : 'error',
@@ -54,7 +54,7 @@ casper.start("http://1.234.20.120/");
 
 			      }, 
 			      function timeout() { 
-				    casper.open("http://172.16.101.178/ledModule.php",{
+				    casper.open("http://127.0.0.1/ledModule.php",{
   			            	method: 'post',
 			            	data  :	 {
 						'data' : 'error',
@@ -71,7 +71,7 @@ casper.start("http://1.234.20.120/");
 		   }
    );
    casper.waitForText("Proudly", function then() {
-         		            casper.open("http://172.16.101.178/ledModule.php",{
+         		            casper.open("http://127.0.0.1/ledModule.php",{
   			            	method: 'post',
 			            	data  :	 {
 			      			'data' : 'success',
@@ -81,7 +81,7 @@ casper.start("http://1.234.20.120/");
 
 			      }, 
 			      function timeout() { 
-				    casper.open("http://172.16.101.178/ledModule.php",{
+				    casper.open("http://127.0.0.1/ledModule.php",{
   			            	method: 'post',
 			            	data  :	 {
 						'data' : 'error',
