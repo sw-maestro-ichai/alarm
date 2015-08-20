@@ -2,14 +2,15 @@
 
 ##부품목록
 
-|  NO  |  부품명  |  수량  |
-| :------: | ------ | --------:|
-|  1  |  Raspberry Pi  |  1  |
-|  2  |  RGB LED Chain (20개 모듈 일체형)  |  2  |
-|  3  |  스피커  |  1  |
-|  4  |  점퍼 케이블 1P  |  3  |
-|  5  |  케이블타이  |  40  |
-|  6  |  DC 5v 아답터  |  1  |
+|  NO  |  부품명  |  수량  | 상세 |
+| :------: | ------ | --------:| :------ |
+|  1  |  Raspberry Pi  |  1  |  Raspberry Pi 2  |
+|  2  |  RGB LED Chain (20개 모듈 일체형)  |  2  |  12MM DIFFUSED FLAT DIGITAL RGB LED PIXELS  |
+|  3  |  온습도 센서  |  1  |  RHT01  |
+|  4  |  스피커  |  1  |  QS-130U  |
+|  5  |  점퍼 케이블  |  3  |  테스트 소켓 점퍼 케이블 1P  | 
+|  6  |  케이블타이  |  40  |  케이블타이  |
+|  7  |  DC 5V 아답터  |  1  |  DC 5V 아답터  |
 
 ##제작과정
 
@@ -21,11 +22,11 @@
 
 ![img](https://github.com/sw-maestro-ichai/alarm/blob/master/Manual/Pictures/2.jpeg)
 
-#####3. 라즈베리파이와 스피커를 넣을 상자를 구름 틀 안에 넣고 고정시킵니다.
+#####3. 라즈베리파이 넣을 상자를 구름 틀 안에 넣고 고정시킵니다.
 
 ![img](https://github.com/sw-maestro-ichai/alarm/blob/master/Manual/Pictures/3.jpeg)
 
-#####4. 케이블타이를 이용하여 LED Chain을 구름 틀에 고정시킵니다.
+#####4. LED Chain을 케이블타이를 이용하여 구름 틀에 고정시킵니다.
 
 ![img](https://github.com/sw-maestro-ichai/alarm/blob/master/Manual/Pictures/4.jpeg)
 
@@ -34,6 +35,7 @@
 ![img](https://github.com/sw-maestro-ichai/alarm/blob/master/Manual/Pictures/5.jpeg)
 
 #####6. 완성
+![img](https://github.com/sw-maestro-ichai/alarm/blob/master/Manual/Pictures/6_cloud.jpeg)
 
 
 ##하드웨어
