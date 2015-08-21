@@ -187,7 +187,7 @@ if sys.argv[1] == "Test":
 		led.start()
 	elif sys.argv[2] == "Sound":
 		sound = threading.Thread(target = playSound)
-        sound.start()
+		sound.start()
 
 
 # Start source code. main flow
