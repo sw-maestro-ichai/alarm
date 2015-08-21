@@ -20,6 +20,7 @@ $(function(){
 				location.href="/home.php";
 			}).fail(function(error){
 				alert(error.statusText);
+				alert("test");
     });
 		
     });
