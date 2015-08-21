@@ -34,7 +34,7 @@ function setSettingInfo(){
 	sql_query("update Setting set cloudOnOff		= '$_POST[cloudOnOff]',
 								  monitoringOnOff	= '$_POST[monitoringOnOff]',
 								  soundOnOff		= '$_POST[soundOnOff]',
-								   Light		= '$_POST[alertLight]',
+								   alertLight		= '$_POST[alertLight]',
 								  normalLight		= '$_POST[normalLight]'
 
 			 ");
