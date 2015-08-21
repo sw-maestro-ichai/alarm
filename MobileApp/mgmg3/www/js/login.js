@@ -9,25 +9,17 @@ $(function(){
 		localStorage.ipAddress = $('#ip_address').val();
 	
 		$.ajax({
-			type: 'GET',
+			type: 'POST',
 			url: "http://"+localStorage.ipAddress+"/mgmg_api.php",
 			data: {
-				function: 'login'
+				"function": 'login'
 			},
-			dataType: 'jsonp',
-			crossDomain: true,
+			dataType: 'html',
 			}).done(function(response){
-				//location.href="/home.php";
+				alert("OK!");
+				location.href="./home.html";
 			}).fail(function(error){
-				alert(error.statusText);
-				alert("test");
-				var jsonData = $.parseJSON(error.statusText);
-				if(jsonData.state == "OK"){
-					location.href="/home.php";
-					alert("gogo");
-				}else{
-					alert("error");
-				}
+				alert("Fail!!");
     });
 		
     });

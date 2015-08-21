@@ -2,7 +2,7 @@
 @header('Content-Type: application/json;charset=utf-8');
 include_once("./dbconfig.php");
 
-eval($_GET['function']."();");
+eval($_POST['function']."();");
 
 function login(){
 	$table['state'] = 'OK';
@@ -34,7 +34,7 @@ function setSettingInfo(){
 	sql_query("update Setting set cloudOnOff		= '$_POST[cloudOnOff]',
 								  monitoringOnOff	= '$_POST[monitoringOnOff]',
 								  soundOnOff		= '$_POST[soundOnOff]',
-								  alertLight		= '$_POST[alertLight]',
+								   Light		= '$_POST[alertLight]',
 								  normalLight		= '$_POST[normalLight]'
 
 			 ");
