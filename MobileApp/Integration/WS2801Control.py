@@ -192,11 +192,11 @@ if sys.argv[1] == "Test":
 
 # Start source code. main flow
 if len(sys.argv) != 4:
-    print "python WS2801Control.py [ mode = \"Normal\" | \"Alert\" ]"
-    print "       [ color = \"Red\" \"Green\" \"Blue\" \"White\" \"None\" ]"
-    print "       [ alert sound = \"ON\" / \"OFF\" ]" 
+	print "python WS2801Control.py [ mode = \"Normal\" | \"Alert\" ]"
+	print "       [ color = \"Red\" \"Green\" \"Blue\" \"White\" \"None\" ]"
+	print "       [ alert sound = \"ON\" / \"OFF\" ]" 
 	print "[test] python WS2801Control.py Test [mode] [color]"
-    sys.exit(0)
+	sys.exit(0)
 
 if sys.argv[1] == "Normal":
     led = threading.Thread(target = BreathMode, args = (sys.argv[2],))
