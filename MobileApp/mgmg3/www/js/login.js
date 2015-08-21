@@ -6,17 +6,16 @@ $(document).on('pageinit', '#splash', function(){
         
 $(function(){
     $('a#connect').click(function() {
+		localStorage.ipAddress = $('#ip_address').val();
 	    $.ajax({
 	      // 결과를 한글로 받을 수 있다.
-	    	   url : "http://172.16.101.207/mgmg_api.php",
+	    	   url : "http://"+localStorage.ipAddress + "/mgmg_api.php",
 		  dataType : "html",
 	          type : "POST",
-	          data : { "function" : "login", "ip" : $("#ip_address").val()},
+	          data : { "function" : "login"},
 	  
-		  success : function(jsontext) {
-		  	var data = JSON.parse(jsontext);               
-			//alert(data.result_text);
-	                if(data.result=='success'){
+		  success : function(text) {
+	                if(text == "OK"){
 			location.href="./home.html";
 			}else{
 	                alert(data.result_text);

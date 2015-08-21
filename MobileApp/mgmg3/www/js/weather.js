@@ -26,7 +26,7 @@ $(function(){
 //});
 function getEnvironmentInfo(){
 $.ajax({
-	  url : "http://172.16.101.207/mgmg_api.php",
+	  url : "http://"+localStorage.ipAddress+"/mgmg_api.php",
 	  dataType : "html",
           type : "POST",
           data : { "function" : "getEnvironmentInfo",
