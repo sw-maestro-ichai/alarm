@@ -19,6 +19,8 @@ $(function(){
 			}).done(function(response){
 				//location.href="/home.php";
 			}).fail(function(error){
+				alert(error.statusText);
+				alert("test");
 				var jsonData = $.parseJSON(error.statusText);
 				if(jsonData.state == "OK"){
 					location.href="/home.php";
