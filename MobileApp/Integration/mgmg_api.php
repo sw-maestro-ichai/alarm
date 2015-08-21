@@ -5,7 +5,7 @@ include_once("./dbconfig.php");
 eval($_GET['function']."();");
 
 function login(){
-	echo "{\"state\" : \"OK\"}";
+	echo "\"{\"state\" : \"OK\"}\"";
 }
 
 function getSettingInfo(){
