@@ -107,7 +107,32 @@ def BreathMode(text):
                 OnLedAll(MakingColorBit(i,i,i))
             for i in range(255):
                 OnLedAll(MakingColorBit(255-i,255-i,255-i))
+		OffLed()
 
+def BreathTest(text):
+	    if text == "None":
+            OnLedAll(textToColor(text))
+        elif text == "Red":
+            for i in range(255):
+                OnLedAll(MakingColorBit(i, 0, 0))
+            for i in range(255):
+                OnLedAll(MakingColorBit(255-i,0,0))
+        elif text == "Green":
+            for i in range(255):
+                OnLedAll(MakingColorBit(0,i,0))
+            for i in range(255):
+                OnLedAll(MakingColorBit(0,255-i,0))
+        elif text == "Blue":
+            for i in range(255):
+                OnLedAll( MakingColorBit(0,0,i))
+            for i in range(255):
+                OnLedAll(MakingColorBit(0,0,255-i))
+        elif text == "White":
+            for i in range(255):
+                OnLedAll(MakingColorBit(i,i,i))
+            for i in range(255):
+                OnLedAll(MakingColorBit(255-i,255-i,255-i))
+		OffLed()
   
 
 def LightningMode(colorCode):
@@ -134,6 +159,17 @@ def textToColor(text):
     else:
         return MakingColorBit(0,0,0)
 
+	
+def LightningTest(colorCode):
+	try:
+		for i in range(20):
+			OnLedRandom(colorCode)
+			time.sleep(0.05)
+		OffLed()
+	except KeyboardInterrupt:
+		OffLed()
+		sys.exit(0)
+	
 # Start source code. main flow
 if len(sys.argv) != 4:
     print "WS2801 [ mode = \"Normal\" | \"Alert\" ]"

@@ -34,7 +34,7 @@ if($_POST['data']=="error"){
 // 푸시 내용, data 부분을 자유롭게 사용해 클라이언트에서 분기할 수 있음.
 	$arr = array();
 	$arr['data'] = array();
-	$arr['data']['title'] = '모니터링 경고';
+	$arr['data']['title'] = '모니터링 경고'; 
 	$arr['data']['message'] = '모니터링에 이상이 발생하였습니다. 서버를 확인하세요.';
 	$arr['registration_ids'] = array();
 	$arr['registration_ids'][0] = $regid;
@@ -64,10 +64,7 @@ if($_POST['data']=="error"){
 		   	   ");
      exec("sudo python WS2801Control.py Normal ".$normalLight." ".$soundOnOff);
 
-   
-
 }
-
 
 
 
