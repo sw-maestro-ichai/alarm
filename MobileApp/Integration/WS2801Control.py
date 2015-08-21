@@ -180,10 +180,10 @@ def LightningTest(text):
 
 if sys.argv[1] == "Test":
 	if sys.argv[2] == "Normal":
-		led = threading.Thread(target = BreathTest, args = (sys.argv[2],))
+		led = threading.Thread(target = BreathTest, args = (sys.argv[3],))
 		led.start()
 	elif sys.argv[2] == "Alert":
-		Led = threading.Thread(target = BreathTest, args = (sys.argv[2],))
+		Led = threading.Thread(target = BreathTest, args = (sys.argv[3],))
 		led.start()
 	elif sys.argv[2] == "Sound":
 		sound = threading.Thread(target = playSound)
