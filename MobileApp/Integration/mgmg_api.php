@@ -3,27 +3,11 @@
 @header('Content-Type: application/json;charset=utf-8');
 include_once("./dbconfig.php");
 
-eval($_POST['function']."();");
+eval($_GET['function']."();");
 
 
 function login(){
-
-	$result;
-	$result_text;
-	$result = sql_query("select * from Setting where ip='$_POST[ip]'");
-
-	if(mysql_num_rows($result)>0){
-		$result = "success";
-		$result_text = "해당 ip가 등록 되었습니다.";
-	}else{
-  		$result = "fail";
-   		$result_text = "ip등록에 실패 하였습니다.";
-	}
-	$arr				= array();
-	$arr[result]		= $result;
-	$arr[result_text]	= $result_text;
-	returnFunction($arr);
-
+	return {"state" : "OK"};
 }
 
 function getSettingInfo(){

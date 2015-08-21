@@ -7,15 +7,16 @@ $(document).on('pageinit', '#splash', function(){
 $(function(){
     $('a#connect').click(function() {
 		localStorage.ipAddress = $('#ip_address').val();
+	
 	    $.ajax({
 	      // 결과를 한글로 받을 수 있다.
 	    	   url : "http://"+localStorage.ipAddress + "/mgmg_api.php",
-		  dataType : "html",
-	          type : "POST",
+		  dataType : "jsonp",
+	          type : "GET",
 	          data : { "function" : "login"},
 	  
-		  success : function(text) {
-	                if(text == "OK"){
+		  success : function(json) {
+	                if(json.parseJSON().state == "OK"){
 			location.href="./home.html";
 			}else{
 	                alert(data.result_text);
