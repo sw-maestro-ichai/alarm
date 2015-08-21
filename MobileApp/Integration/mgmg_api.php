@@ -8,8 +8,6 @@ eval($_POST['function']."();");
 
 function login(){
 
-	return "OK";
-	/*
 	$result;
 	$result_text;
 	$result = sql_query("select * from Setting where ip='$_POST[ip]'");
@@ -25,7 +23,7 @@ function login(){
 	$arr[result]		= $result;
 	$arr[result_text]	= $result_text;
 	returnFunction($arr);
-*/
+
 }
 
 function getSettingInfo(){
