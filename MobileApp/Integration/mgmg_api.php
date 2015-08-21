@@ -120,5 +120,13 @@ function returnFunction($arr){
 
 }
 
+/*
+* ledTest = Testing led color and mode when clicked test button on setting page
+* @param json ( color, mode )
+* @action On led for testing
+* @return void
+*/
+function ledTest($args)
+	
 ?>
 	
