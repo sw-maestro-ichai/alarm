@@ -22,7 +22,7 @@ $(function(){
 			}
 	      },
 		  error: function(request, textStatus, errorThrown) {
-			alert('error: ' + textStatus);
+			alert('error: ' + request );
 		  }
 	    });
     });
