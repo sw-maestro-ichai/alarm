@@ -58,28 +58,31 @@ def OnLedAll(colorCode):
 # @param void
 # @return void
 def OffLed():
+	#Set All Red off using colorcode 0,0,0
     OnLedAll(0)
 
 # OnLedRandom that write colorCode in sequential 10 led for lightning effect
 # @param colorCode
 # @return void
 def OnLedRandom(colorCode):
-    openSPI = file(SPI, "w")
-    color = MakingColorBit(0, 0, 0)
-    OffLed()
-    for i in range(random.randint(0, NumOfLed-6)):                        
-        openSPI.write(chr((color>>16) & 0xFF))
-        openSPI.write(chr((color>>8) & 0xFF))
-        openSPI.write(chr((color) & 0xFF))
-
-    
-    for j in range(10):
-        openSPI.write(chr((colorCode>>16) & 0xFF))
-        openSPI.write(chr((colorCode>>8) & 0xFF))
-        openSPI.write(chr((colorCode) & 0xFF))
-   
-    openSPI.close()
-    time.sleep(0.002)
+	#open device "w"rite mode
+	openSPI = file(SPI, "w")
+	#init spi device -> Led off for removing noise
+	color = MakingColorBit(0, 0, 0)
+	OffLed()
+	#Determine random position that light on 0 ~ 30
+	for i in range(random.randint(0, NumOfLed-10)):                        
+		openSPI.write(chr((color>>16) & 0xFF))
+		openSPI.write(chr((color>>8) & 0xFF))
+		openSPI.write(chr((color) & 0xFF))
+	#Turn on 10 led
+	for j in range(10):
+		openSPI.write(chr((colorCode>>16) & 0xFF))
+		openSPI.write(chr((colorCode>>8) & 0xFF))
+		openSPI.write(chr((colorCode) & 0xFF))
+	openSPI.close()
+	#Waiting device
+	time.sleep(0.002)
 
 # 
 #
@@ -107,43 +110,45 @@ def BreathMode(text):
                 OnLedAll(MakingColorBit(i,i,i))
             for i in range(255):
                 OnLedAll(MakingColorBit(255-i,255-i,255-i))
-		OffLed()
+	OffLed()
 
 def BreathTest(text):
-	    if text == "None":
-            OnLedAll(textToColor(text))
-        elif text == "Red":
-            for i in range(255):
-                OnLedAll(MakingColorBit(i, 0, 0))
-            for i in range(255):
-                OnLedAll(MakingColorBit(255-i,0,0))
-        elif text == "Green":
-            for i in range(255):
-                OnLedAll(MakingColorBit(0,i,0))
-            for i in range(255):
-                OnLedAll(MakingColorBit(0,255-i,0))
-        elif text == "Blue":
-            for i in range(255):
-                OnLedAll( MakingColorBit(0,0,i))
-            for i in range(255):
-                OnLedAll(MakingColorBit(0,0,255-i))
-        elif text == "White":
-            for i in range(255):
-                OnLedAll(MakingColorBit(i,i,i))
-            for i in range(255):
-                OnLedAll(MakingColorBit(255-i,255-i,255-i))
-		OffLed()
+    if text == "None":
+        OnLedAll(textToColor(text))
+    elif text == "Red":
+        for i in range(255):
+            OnLedAll(MakingColorBit(i, 0, 0))
+        for i in range(255):
+            OnLedAll(MakingColorBit(255-i,0,0))
+    elif text == "Green":
+        for i in range(255):
+            OnLedAll(MakingColorBit(0,i,0))
+        for i in range(255):
+            OnLedAll(MakingColorBit(0,255-i,0))
+    elif text == "Blue":
+        for i in range(255):
+            OnLedAll( MakingColorBit(0,0,i))
+        for i in range(255):
+            OnLedAll(MakingColorBit(0,0,255-i))
+    elif text == "White":
+        for i in range(255):
+            OnLedAll(MakingColorBit(i,i,i))
+        for i in range(255):
+            OnLedAll(MakingColorBit(255-i,255-i,255-i))
+    OffLed()
   
 
-def LightningMode(colorCode):
-    try:
-        for i in range(100):
-            OnLedRandom(colorCode)
-            time.sleep(0.05)
-        OffLed()
-    except KeyboardInterrupt:
-        OffLed()
-        sys.exit(0)
+def LightningMode(text):
+	colorCode = textToColor(text)
+	try:
+		for i in range(100):
+			OnLedRandom(colorCode)
+			time.sleep(0.05)
+			OffLed()
+	except KeyboardInterrupt:
+		OffLed()
+		sys.exit(0)
+
 
 def textToColor(text):
     if text == "None":
@@ -160,34 +165,41 @@ def textToColor(text):
         return MakingColorBit(0,0,0)
 
 	
-def LightningTest(colorCode):
+def LightningTest(text):
+	colorCode = textToColor(text)
 	try:
-		for i in range(20):
+		for i in range(10):
 			OnLedRandom(colorCode)
 			time.sleep(0.05)
 		OffLed()
 	except KeyboardInterrupt:
 		OffLed()
 		sys.exit(0)
-	
+
+
+
+if sys.argv[1] == "Test":
+	if sys.argv[2] == "Normal":
+		BreathTest(sys.argv[3])
+	elif sys.argv[2] == "Alert":
+		LightningTest(sys.argv[3])
+	sys.exit(0)
+
+
 # Start source code. main flow
 if len(sys.argv) != 4:
-    print "WS2801 [ mode = \"Normal\" | \"Alert\" ]"
+    print "python WS2801Control.py [ mode = \"Normal\" | \"Alert\" ]"
     print "       [ color = \"Red\" \"Green\" \"Blue\" \"White\" \"None\" ]"
-    print "       [ alert sound = \"ON\" / \"OFF\" ]"
+    print "       [ alert sound = \"ON\" / \"OFF\" ]" 
+	print "[test] python WS2801Control.py Test [mode] [color]"
     sys.exit(0)
 
 if sys.argv[1] == "Normal":
     led = threading.Thread(target = BreathMode, args = (sys.argv[2],))
     led.start()
 elif sys.argv[1] == "Alert":
-    led = threading.Thread(target = LightningMode, args = (textToColor(sys.argv[2]),))
+    led = threading.Thread(target = LightningMode, args = (sys.argv[2],))
     led.start()
     if sys.argv[3] == "ON":
         sound = threading.Thread(target = playSound)
         sound.start()
-    print sys.argv[1]
-    print sys.argv[2]
-    print sys.argv[3]
-
-
