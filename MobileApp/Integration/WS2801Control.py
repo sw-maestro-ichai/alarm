@@ -183,7 +183,7 @@ if sys.argv[1] == "Test":
 		led = threading.Thread(target = BreathTest, args = (sys.argv[3],))
 		led.start()
 	elif sys.argv[2] == "Alert":
-		Led = threading.Thread(target = BreathTest, args = (sys.argv[3],))
+		led = threading.Thread(target = LightningTest, args = (sys.argv[3],))
 		led.start()
 	elif sys.argv[2] == "Sound":
 		sound = threading.Thread(target = playSound)
