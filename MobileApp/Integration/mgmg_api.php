@@ -1,13 +1,11 @@
-
-<?
+<?php
 @header('Content-Type: application/json;charset=utf-8');
 include_once("./dbconfig.php");
 
 eval($_GET['function']."();");
 
-
 function login(){
-	return {"state" : "OK"};
+	echo "{\"state\" : \"OK\"}";
 }
 
 function getSettingInfo(){
@@ -104,12 +102,5 @@ function returnFunction($arr){
 
 }
 
-/*
-* ledTest = Testing led color and mode when clicked test button on setting page
-* @param json ( color, mode )
-* @action On led for testing
-* @return void
-*/
-function ledTest($args)
 
 ?>
