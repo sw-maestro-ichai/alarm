@@ -116,25 +116,25 @@ def BreathTest(text):
     if text == "None":
         OnLedAll(textToColor(text))
     elif text == "Red":
-        for i in range(255):
-            OnLedAll(MakingColorBit(i, 0, 0))
-        for i in range(255):
-            OnLedAll(MakingColorBit(255-i,0,0))
+        for i in range(85):
+            OnLedAll(MakingColorBit(i*3, 0, 0))
+        for i in range(85):
+            OnLedAll(MakingColorBit(255-i*3,0,0))
     elif text == "Green":
-        for i in range(255):
-            OnLedAll(MakingColorBit(0,i,0))
-        for i in range(255):
-            OnLedAll(MakingColorBit(0,255-i,0))
+        for i in range(85):
+            OnLedAll(MakingColorBit(0,i*3,0))
+        for i in range(85):
+            OnLedAll(MakingColorBit(0,255-i*3,0))
     elif text == "Blue":
-        for i in range(255):
-            OnLedAll( MakingColorBit(0,0,i))
-        for i in range(255):
-            OnLedAll(MakingColorBit(0,0,255-i))
+        for i in range(85):
+            OnLedAll( MakingColorBit(0,0,i*3))
+        for i in range(85):
+            OnLedAll(MakingColorBit(0,0,255-i*3))
     elif text == "White":
-        for i in range(255):
-            OnLedAll(MakingColorBit(i,i,i))
-        for i in range(255):
-            OnLedAll(MakingColorBit(255-i,255-i,255-i))
+        for i in range(85):
+            OnLedAll(MakingColorBit(i*3,i*3,i*3))
+        for i in range(85):
+            OnLedAll(MakingColorBit(255-i*3,255-i*3,255-i*3))
     OffLed()
   
 
@@ -183,18 +183,19 @@ def LedPreview():
 			if sys.argv[2] == "Normal":
 				led = threading.Thread(target = BreathTest, args = (sys.argv[3],))
 				led.start()
-		elif sys.argv[2] == "Alert":
-			led = threading.Thread(target = LightningTest, args = (sys.argv[3],))
-			led.start()
-		elif sys.argv[2] == "Sound":
-			sound = threading.Thread(target = playSound)
-			sound.start()
+			elif sys.argv[2] == "Alert":
+				led = threading.Thread(target = LightningTest, args = (sys.argv[3],))
+				led.start()
+			elif sys.argv[2] == "Sound":
+				sound = threading.Thread(target = playSound)
+				sound.start()
 	except KeyboardInterrupt:
 		led.stop()
 		sound.stop()
 		OffLed()
 		sys.exit(0)
 
+LedPreview()
 
 # Start source code. main flow
 if len(sys.argv) != 4:
