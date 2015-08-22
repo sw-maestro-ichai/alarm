@@ -221,5 +221,19 @@ $(function(){
 		return true;
 	    }
 	}
-
+	
+	// Testing Led
+	$('#basic-light-Red').click(function(){
+		$.ajax({
+			type: 'POST',
+			url: "http://"+localStorage.ipAddress+"/mgmg_api.php",
+			data: {
+				"function": "testLed",
+				"mode" : "Normal",
+				"color":"Red"
+			},
+			dataType: 'html',
+			});
+	});
+	
 });

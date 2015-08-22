@@ -105,7 +105,7 @@ function returnFunction($arr){
 }
 
 function testLed(){
-	exec("sudo python WS2801Control.py Test $_POST['mode'] $_POST['color']");
+	exec("sudo python WS2801Control.py Test ".$_POST['mode']." ".$_POST['color']);
 }
 
 
