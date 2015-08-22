@@ -233,6 +233,10 @@ $(function(){
 				"color":"Red"
 			},
 			dataType: 'html',
+			}).done(function(response){
+				alert(response);
+			}).fail(function(error){
+				alert(error);
 			});
 	});
 	
