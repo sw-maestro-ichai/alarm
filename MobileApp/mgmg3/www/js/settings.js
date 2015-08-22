@@ -223,7 +223,7 @@ $(function(){
 	}
 	
 	// Testing Led
-	$('#basic-light-Red').click(function(){
+	$('#Bled1').click(function(){
 		$.ajax({
 			type: 'POST',
 			url: "http://"+localStorage.ipAddress+"/mgmg_api.php",
@@ -233,11 +233,22 @@ $(function(){
 				"color":"Red"
 			},
 			dataType: 'html',
-			}).done(function(response){
-				alert(response);
-			}).fail(function(error){
-				alert(error);
 			});
 	});
+	
+	$('#Bled2').click(function(){
+		$.ajax({
+			type: 'POST',
+			url: "http://"+localStorage.ipAddress+"/mgmg_api.php",
+			data: {
+				"function": "testLed",
+				"mode" : "Normal",
+				"color":"Blue"
+			},
+			dataType: 'html',
+			});
+	});
+	
+	
 	
 });

@@ -177,17 +177,23 @@ def LightningTest(text):
 		sys.exit(0)
 
 
-
-if sys.argv[1] == "Test":
-	if sys.argv[2] == "Normal":
-		led = threading.Thread(target = BreathTest, args = (sys.argv[3],))
-		led.start()
-	elif sys.argv[2] == "Alert":
-		led = threading.Thread(target = LightningTest, args = (sys.argv[3],))
-		led.start()
-	elif sys.argv[2] == "Sound":
-		sound = threading.Thread(target = playSound)
-		sound.start()
+def LedPreview():
+	try:
+		if sys.argv[1] == "Test":
+			if sys.argv[2] == "Normal":
+				led = threading.Thread(target = BreathTest, args = (sys.argv[3],))
+				led.start()
+		elif sys.argv[2] == "Alert":
+			led = threading.Thread(target = LightningTest, args = (sys.argv[3],))
+			led.start()
+		elif sys.argv[2] == "Sound":
+			sound = threading.Thread(target = playSound)
+			sound.start()
+	except KeyboardInterrupt:
+		led.stop()
+		sound.stop()
+		OffLed()
+		sys.exit(0)
 
 
 # Start source code. main flow
