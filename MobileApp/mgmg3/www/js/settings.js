@@ -326,5 +326,17 @@ $(function(){
 			});
 	});
 	
+		$('#PlaySample').click(function(){
+		$.ajax({
+			type: 'POST',
+			url: "http://"+localStorage.ipAddress+"/mgmg_api.php",
+			data: {
+				"function": "testLed",
+				"mode" : "Sound",
+			},
+			dataType: 'html',
+			});
+		});
+	
 	
 });
