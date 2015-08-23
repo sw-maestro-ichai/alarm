@@ -13,7 +13,14 @@ $now = date ("Y-m-d H:i:s", time());
     }else{
        $soundOnOff='OFF';
     }
-    
+echo "sds";
+function sendMessage($gcmId){
+
+	echo $gcmId;  
+	
+//	echo $cnt;
+
+}
 if($_POST['data']=="error"){
 	
     sql_query("insert into Monitoring set takeTime = '$time',
@@ -22,9 +29,9 @@ if($_POST['data']=="error"){
 
    
      exec("sudo python WS2801Control.py Alert ".$alertLight." ".$soundOnOff);
-
-	$regid = "APA91bEIHuLU0MpRU14aZ60JSwAtHBiVVcJe7_63Uz7lG1e8tVn3FxCWQsTh8mFYu3Htebb9zuiYZCIy38phR-f3iutguL87nTKQNwfeyNX-RBCMJ0d0C8XzcLGuO7MYdsCNpPaZLqeg";
-
+ 	$result = sql_query("select * from GCMTable");
+	while($row = mysql_fetch_array($result)){
+    	$regid=$row[gcmId];
 // 헤더 부분
 	$headers = array(
 		'Content-Type:application/json',
@@ -54,8 +61,7 @@ if($_POST['data']=="error"){
 	
 	// 푸시 전송시 성공 수량 반환.
 	$cnt = $obj->{"success"};
-	
-	echo $cnt;
+	}
 
 
 }else{

@@ -6,8 +6,44 @@ eval($_POST['function']."();");
 
 function login(){
 	$table['state'] = 'OK';
-	echo json_encode($table);
+	$result=sql_query("select * from GCMTable where gcmId='$_POST[gcmId]'");
+    $id_count         = mysql_num_rows($result);	
+	if($id_count>0){
+	}else{
+	$result= sql_query("insert into GCMTable set gcmId='$_POST[gcmId]'");	
+	}
+	
+	$arr = array();
+	$arr[result]='success';
+	$arr[result_text]='성공적으로 gcm id를 등록하였습니다.';
+	returnFunction($arr);
+
+//echo json_encode($table);
+    
 	//"'{\"state\" : \"OK\"}'";
+}
+
+function getGCMId(){
+    $gcmList= array();
+	$result = sql_query("select * from GCMTable");
+	while($row = mysql_fetch_array($result)){
+		$gcmList[] = $row;
+	}
+	
+	$arr = array();
+	$arr[gcmList]=$gcmList;
+	returnFunction($arr);
+
+}
+
+function setGCMId(){
+	$result= sql_query("insert into GCMTable set gcmId='$_POST[gcmId]'");
+
+	$arr = array();
+	$arr[result]='success';
+	$arr[result_text]='성공적으로 gcm id를 등록하였습니다.';
+	returnFunction($arr);
+
 }
 
 function getSettingInfo(){
@@ -52,7 +88,7 @@ function getWebLogInfo(){
  	$result  = sql_query("select * from Monitoring order by id desc limit 10");
     $logList = array();
 	while($row = mysql_fetch_array($result)){
-		$logList[] = $row;
+		$loglist[] = $row;
 
 	}
 
