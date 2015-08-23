@@ -221,8 +221,7 @@ $(function(){
 		return true;
 	    }
 	}
-	
-	// Testing Led
+
 	$('#Bled1').click(function(){
 		$.ajax({
 			type: 'POST',
@@ -249,6 +248,83 @@ $(function(){
 			});
 	});
 	
+		$('#Bled3').click(function(){
+		$.ajax({
+			type: 'POST',
+			url: "http://"+localStorage.ipAddress+"/mgmg_api.php",
+			data: {
+				"function": "testLed",
+				"mode" : "Normal",
+				"color":"Green"
+			},
+			dataType: 'html',
+			});
+	});
+	
+		$('#Bled4').click(function(){
+		$.ajax({
+			type: 'POST',
+			url: "http://"+localStorage.ipAddress+"/mgmg_api.php",
+			data: {
+				"function": "testLed",
+				"mode" : "Normal",
+				"color":"White"
+			},
+			dataType: 'html',
+			});
+	});
+	
+		$('#led1').click(function(){
+		$.ajax({
+			type: 'POST',
+			url: "http://"+localStorage.ipAddress+"/mgmg_api.php",
+			data: {
+				"function": "testLed",
+				"mode" : "Alert",
+				"color":"Red"
+			},
+			dataType: 'html',
+			});
+	});
+	
+		$('#led2').click(function(){
+		$.ajax({
+			type: 'POST',
+			url: "http://"+localStorage.ipAddress+"/mgmg_api.php",
+			data: {
+				"function": "testLed",
+				"mode" : "Alert",
+				"color":"Blue"
+			},
+			dataType: 'html',
+			});
+	});
+	
+		$('#led3').click(function(){
+		$.ajax({
+			type: 'POST',
+			url: "http://"+localStorage.ipAddress+"/mgmg_api.php",
+			data: {
+				"function": "testLed",
+				"mode" : "Alert",
+				"color":"Green"
+			},
+			dataType: 'html',
+			});
+	});
+	
+		$('#led2').click(function(){
+		$.ajax({
+			type: 'POST',
+			url: "http://"+localStorage.ipAddress+"/mgmg_api.php",
+			data: {
+				"function": "testLed",
+				"mode" : "Alert",
+				"color":"White"
+			},
+			dataType: 'html',
+			});
+	});
 	
 	
 });
