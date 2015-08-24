@@ -1,5 +1,78 @@
-$(function(){
-	getWebLogInfo();
+$(document).on('pageinit', '#webLog', function() {
+//$(function(){
+	google.load('visualization', '1', {packages: ['corechart', 'line']});
+    google.setOnLoadCallback(drawBasic);
+    
+    function drawBasic() {
+        
+        var graphData = new google.visualization.DataTable();
+        graphData.addColumn('number', 'X');
+        graphData.addColumn('number', 'takeTime');
+        
+        getWebLogInfoForGraph();
+	
+	function getWebLogInfoForGraph(){
+		$.ajax({
+	  	   url : "http://"+localStorage.ipAddress+"/mgmg_api.php",
+	  dataType : "html",
+          type : "POST",
+          data : { "function" : "getWebLogInfoForGraph"
+				 }, 
+   	   success : function(jsontext) {
+	  				var data = JSON.parse(jsontext);
+                    var row = [];
+        			if(data.result=='success'){
+                        var currentTime = new Date(data.logList[0].isTime).getMinutes();
+                        for(var i=0; i<data.logList.length; i++){
+                            var t2 = new Date(data.logList[i].isTime);
+                            if ( i > 0 ) {
+                                var t1 = new Date(data.logList[i-1].isTime);
+                                if (t2.getHours() < t1.getHours()) {
+                                    var isTime = ( t2.getMinutes()-60 ) + ( -currentTime );
+                                } else {
+                                    if (t2.getMinutes()-currentTime > 0) {
+                                        var isTime = t2.getMinutes() - currentTime - 60;
+                                    } else {
+                                        var isTime = t2.getMinutes() - currentTime;
+                                    }
+                                }
+                            } else {
+                                if (t2.getMinutes() - currentTime > 0) {
+                                    var isTime = t2.getMinutes() - currentTime - 60;
+                                } else {
+                                    var isTime = t2.getMinutes() - currentTime;
+                                }
+                            }
+                            var takeTime = data.logList[i].takeTime;    
+                            row[i]=[isTime, takeTime];    
+						}
+                        
+                        graphData.addRows(row);
+                           var options = {
+                                    hAxis: {
+                                    title: 'isTime'
+                                            },
+                                    vAxis: {
+                                    title: 'takeTime'
+                                            }
+                                        };
+                        var chart = new google.visualization.LineChart(document.getElementById('chart1'));
+                        chart.draw(graphData, options);
+					
+                    }else{
+        			    alert(data.result_text);
+					}
+      			},
+	  	 error : function(request, textStatus, errorThrown) {
+					alert('error: ' + textStatus);
+	 	 		}
+	    });
+	}   
+     
+    }
+    
+    
+    getWebLogInfo();
 	
 	function getWebLogInfo(){
 		$.ajax({
@@ -18,6 +91,9 @@ $(function(){
                                   (data.logList[i].takeTime>=4?'color:red;">':'color:gray;">')+
                                   data.logList[i].takeTime + 'sec </span></li>' );
 						}
+                        
+                        //google.load('visualization', '1', {packages: ['corechart', 'line']});
+                        //google.setOnLoadCallback(drawBasic);
 					}else{
         			    alert(data.result_text);
 					}
@@ -27,67 +103,43 @@ $(function(){
 	 	 		}
 	    });
 	}	
-		
-	var d= new Date();
-        /* 가상 데이터 */
-	var DataList=[];
-/*	<? include_once("../dbconfig.php"); 
-	$result = mysql_query("select * from Monitering");
-	        while($row=mysql_fetch_array($result)){
-		$int i=0;
- 		?> DataList[<?echo i;?>]=[<?echo $row[isTime].','.$row[takeTime];?>];
-                <?i++; 
-		}?>
-
-  //      var DataList=[[d, 20.13],[d-3*60000, 19.17],[d-6*60000, 19.27],[d-9*60000, 19.10],[d-12*60000, 20.17],[d-15*60000, 21.17],[d-18*60000, 30.17],[d-21*60000, 40.17],[d-24*60000, 19.20],[d-27*60000, 18.17],[d-30*60000, 20.17]];
     
-        var xy=[]; var x=[]; var y=[];
-        var currentTime=new Date(DataList[0][0]).getMinutes();
-        for(var i=0;i < DataList.length ; i++){
-            var d2= new Date(DataList[i][0]);
-            if(i>0){
-                var d1= new Date(DataList[i-1][0]);
-                if(d2.getHours()<d1.getHours()){
-                    x[i]=(d2.getMinutes()-60)+(-currentTime);
-                }else{
-                    if(d2.getMinutes()-currentTime>0){
-                        x[i]=d2.getMinutes()-currentTime-60;
-                    }else{
-                        x[i]=d2.getMinutes()-currentTime;
-                    }
-                }
-            }else{
-                if((d2.getMinutes()-currentTime)>0){
-                    x[i]=d2.getMinutes()-currentTime-60;
-                }else{
-                    x[i]=d2.getMinutes()-currentTime;
-                }
+	/*
+    //$(document).ready(){
+	//google.load('visualization', '1', {packages: ['corechart', 'line']});
+    //google.setOnLoadCallback(drawBasic);
+    
+    function drawBasic() {
+        var graphData = new google.visualization.DataTable();
+        graphData.addColumn('number', 'X');
+        graphData.addColumn('number', 'takeTime');
+        graphData.addRows([
+            [0, 0],   [1, 10],  [2, 23],  [3, 17],  [4, 18],  [5, 9],
+            [6, 11],  [7, 27],  [8, 33],  [9, 40],  [10, 32], [11, 35],
+            [12, 30], [13, 40], [14, 42], [15, 47], [16, 44], [17, 48],
+            [18, 52], [19, 54], [20, 42], [21, 55], [22, 56], [23, 57],
+            [24, 60], [25, 50], [26, 52], [27, 51], [28, 49], [29, 53],
+            [30, 55], [31, 60], [32, 61], [33, 59], [34, 62], [35, 65],
+            [36, 62], [37, 58], [38, 55], [39, 61], [40, 64], [41, 65],
+            [42, 63], [43, 66], [44, 67], [45, 69], [46, 69], [47, 70],
+            [48, 72], [49, 68], [50, 66], [51, 65], [52, 67], [53, 70],
+            [54, 71], [55, 72], [56, 73], [57, 75], [58, 70], [59, 68],
+            [60, 64], [61, 60], [62, 65], [63, 67], [64, 68], [65, 69],
+            [66, 70], [67, 72], [68, 75], [69, 80]
+        ]);
+        
+        var options = {
+            hAxis: {
+                title: 'isTime'
+            },
+            vAxis: {
+                title: 'takeTime'
             }
-            y[i]=DataList[i][1];
-            xy[i]=[x[i],y[i]];
-        */
-            /* 로그 데이터 리스트 */
-         /*   $("#log-list").append(' <li><a href="#"><h3 style="margin:5px"> 모니터링 시간 </h3> <span style="margin-left:5px" >'+
-                                  (d2.getYear()+1900)+'/'+(d2.getMonth()+1)+'/'+ d2.getDay()+ '&nbsp;'+
-                                  d2.getHours()+':'+d2.getMinutes() + 
-                                  '</span><span class="ui-li-count" id ="sec" style="font-size:15px;'+
-                                  (y[i]>=30?'color:red;">':'color:gray;">')+
-                                  y[i] + 'sec </span></a></li>' );
-        }
-        /* 그래프 그리기 */
-       /* var plot1 = $.jqplot ("chart1", [xy],{
-            title:"상태 그래프",
-            animate:true,
-            axes: {
-                xaxis: {
-                    label: "분 전(min)",
-                    pad: 0
-                },
-                yaxis: {
-                    label: "소요 시간(sec)"
-                }
-            }
-        });
-        $( "#log-list" ).listview( "refresh" );
-*/
+        };
+        var chart = new google.visualization.LineChart(document.getElementById('chart1'));
+        
+        chart.draw(graphData, options);
+    }
+    //}
+    */
 });

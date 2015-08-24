@@ -247,7 +247,7 @@ dependencies {
     releaseCompile project(path: "CordovaLib", configuration: "release")
     compile "com.android.support:support-v4:+"
     // SUB-PROJECT DEPENDENCIES END
-    compile files('gcm.jar')
+    compile files('src/com/plugin/gcm/gcm.jar')
 }
 
 def promptForReleaseKeyPassword() {

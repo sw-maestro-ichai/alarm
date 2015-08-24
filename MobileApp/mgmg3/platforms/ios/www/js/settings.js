@@ -327,7 +327,6 @@ $(function(){
 	});
 	
 		$('#PlaySample').click(function(){
-			alert("dadsfasf");
 		$.ajax({
 			type: 'POST',
 			url: "http://"+localStorage.ipAddress+"/mgmg_api.php",
