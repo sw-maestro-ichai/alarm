@@ -88,7 +88,7 @@ function getWebLogInfo(){
  	$result  = sql_query("select * from Monitoring order by id desc limit 10");
     $logList = array();
 	while($row = mysql_fetch_array($result)){
-		$loglist[] = $row;
+		$logList[] = $row;
 
 	}
 
