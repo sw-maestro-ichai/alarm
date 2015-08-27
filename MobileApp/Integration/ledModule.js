@@ -7,11 +7,10 @@ var casper = require('casper').create({
 	logLevel: 'debug'
 });
 casper.log("hello World!!!");
-//casper.open("http://172.16.101.163/home.php?data=casperjs");
 casper.options.waitTimeout = 10000;
 var checkTime=0;
 
-setInterval("timer()",1000);
+setInterval("timer()",10);
 function timer(){
 checkTime++;
 
@@ -19,13 +18,6 @@ checkTime++;
 casper.start("http://1.234.20.120/");
 
    casper.waitForText("Proudly", function then() {
-         		      //      casper.open("http://172.16.101.178/ledModule.php",{
-  			      //      	method: 'post',
-			      //      	data  :	 {
-			      //		'data' : 'success',
-			      //		'time' : checkTime
-			      //	         }
-	      		      //    });
 
 			      }, 
 			      function timeout() { 
@@ -33,7 +25,7 @@ casper.start("http://1.234.20.120/");
   			            	method: 'post',
 			            	data  :	 {
 						'data' : 'error',
-						'time' : checkTime
+						'time' : checkTime/100
 					         }
 	      		      	    });
 				    this.exit();
@@ -44,13 +36,6 @@ casper.start("http://1.234.20.120/");
 		   }
    );
    casper.waitForText("Proudly", function then() {
-         		      //      casper.open("http://172.16.101.178/ledModule.php",{
-  			      //      	method: 'post',
-			      //      	data  :	 {
-			      //		'data' : 'success',
-		              //		'time' : checkTime
-			      //	         }
-	      		      //      });
 
 			      }, 
 			      function timeout() { 
@@ -58,7 +43,7 @@ casper.start("http://1.234.20.120/");
   			            	method: 'post',
 			            	data  :	 {
 						'data' : 'error',
-						'time' : checkTime
+						'time' : checkTime/100
 					         }
 
 	      		      	    });
@@ -75,7 +60,7 @@ casper.start("http://1.234.20.120/");
   			            	method: 'post',
 			            	data  :	 {
 			      			'data' : 'success',
-			      			'time' : checkTime
+			      			'time' : checkTime/100
 		              	        }
 	      		            });
 
@@ -85,7 +70,7 @@ casper.start("http://1.234.20.120/");
   			            	method: 'post',
 			            	data  :	 {
 						'data' : 'error',
-						'time' : checkTime
+						'time' : checkTime/100
 					         }
 	      		      	    });
 				    this.exit();

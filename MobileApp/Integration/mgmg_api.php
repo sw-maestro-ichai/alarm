@@ -18,32 +18,6 @@ function login(){
 	$arr[result_text]='성공적으로 gcm id를 등록하였습니다.';
 	returnFunction($arr);
 
-//echo json_encode($table);
-    
-	//"'{\"state\" : \"OK\"}'";
-}
-
-function getGCMId(){
-    $gcmList= array();
-	$result = sql_query("select * from GCMTable");
-	while($row = mysql_fetch_array($result)){
-		$gcmList[] = $row;
-	}
-	
-	$arr = array();
-	$arr[gcmList]=$gcmList;
-	returnFunction($arr);
-
-}
-
-function setGCMId(){
-	$result= sql_query("insert into GCMTable set gcmId='$_POST[gcmId]'");
-
-	$arr = array();
-	$arr[result]='success';
-	$arr[result_text]='성공적으로 gcm id를 등록하였습니다.';
-	returnFunction($arr);
-
 }
 
 function getSettingInfo(){
@@ -98,6 +72,34 @@ function getWebLogInfo(){
 	$arr[result_text]	= '웹서비스 모니터링 로그 정보입니다.';
     returnFunction($arr);
 
+}
+
+function getWebLogInfoForGraph(){
+	$result  = sql_query("select * from Monitoring order by id desc limit 10");
+	$logList = array();
+	while($row = mysql_fetch_array($result)){
+		$logList[] = $row;
+	}
+
+	$arr				= array();
+	$arr[result]		= 'success';
+	$arr[logList]		= $logList;
+	$arr[result_text]	= '그래프에 활용할 웹서비스 모니터링 로그 정보입니다.';
+	returnFunction($arr);
+}
+
+function getWebLogInforForGraphByWeek(){
+	$result = sql_query("");
+	$logList = array();
+	while($row = mysql_fetch_array($result)){
+		$logList[] = $row;
+	}
+
+	$arr                = array();
+	$arr[result]        = 'success';
+	$arr[logList]       = $logList;
+	$arr[result_text]   = '주간 그래프에 활용할 웹서비스 모니터링 로그 정보입니다.';
+	returnFunction($arr);
 }
 
 function getEnvironmentInfo(){

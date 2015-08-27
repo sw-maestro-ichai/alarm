@@ -2,7 +2,7 @@
 include_once("./dbconfig.php");
 $time = $_POST['time'];
 $now = date ("Y-m-d H:i:s", time());
- $result=mysql_query("select * from Setting", $connect_db);
+$result=mysql_query("select * from Setting", $connect_db);
     $row= mysql_fetch_object($result);
     $normalLight = $row -> normalLight;
     $alertLight  = $row -> alertLight;
@@ -13,12 +13,10 @@ $now = date ("Y-m-d H:i:s", time());
     }else{
        $soundOnOff='OFF';
     }
-echo "sds";
 function sendMessage($gcmId){
 
 	echo $gcmId;  
 	
-//	echo $cnt;
 
 }
 if($_POST['data']=="error"){
