@@ -1,6 +1,7 @@
 # 뭉게뭉게 (MGMG)
 ![](./Manual/Pictures/readme_img4.jpeg)
  - CasperJS를 이용한 서버 모니터링 모바일 앱 & 구름조명 알람
+ - [제작 영상(YouTube)](https://www.youtube.com/watch?v=mQpP83Eghgk)
  - [MGMG 소개 홈페이지](http://1.234.20.120)
 
 
